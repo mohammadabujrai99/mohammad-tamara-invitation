@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mohammad & Tamara</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f6e8e5;
+            color: #735b57;
+            text-align: center;
+        }
+
+        .invitation {
+            min-height: 100vh;
+            padding: 55px 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 520px;
+            min-height: 850px;
+            padding: 55px 30px;
+            background: rgba(255, 250, 249, 0.92);
+            border: 1px solid #e4c9c4;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(120, 85, 80, 0.12);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Flowers */
+
+        .flower {
+            position: absolute;
+            font-size: 65px;
+            opacity: 0.55;
+        }
+
+        .flower.top {
+            top: 10px;
+            left: 5px;
+        }
+
+        .flower.bottom {
+            bottom: 5px;
+            right: 5px;
+        }
+
+        /* Small heading */
+
+        .welcome {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            color: #9a7771;
+        }
+
+        /* Main title */
+
+        .engagement {
+            font-size: 22px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .names {
+            font-size: 48px;
+            line-height: 1.15;
+            color: #6e514d;
+        }
+
+        .and {
+            font-size: 32px;
+            color: #c99992;
+            margin: 12px 0;
+        }
+
+        .heart {
+            color: #c99992;
+            font-size: 25px;
+            margin: 22px 0;
+        }
+
+        .message {
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 380px;
+            margin: auto;
+        }
+
+        /* Details */
+
+        .details {
+            margin-top: 45px;
+            padding: 25px;
+            border: 1px solid #e3c7c2;
+            border-radius: 20px;
+            background: #fdf6f4;
+        }
+
+        .detail-title {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #a17c76;
+            margin-top: 15px;
+        }
+
+        .detail {
+            font-size: 21px;
+            margin-top: 8px;
+            color: #6f5550;
+        }
+
+        .location {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #ead6d2;
+        }
+
+        /* Button */
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 30px;
+            background: #cfa6a0;
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 15px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #b98d87;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: #9a7771;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .invitation {
+                padding: 20px 12px;
+            }
+
+            .card {
+                min-height: 800px;
+                padding: 45px 22px;
+                border-radius: 25px;
+            }
+
+            .names {
+                font-size: 40px;
+            }
+
+            .message {
+                font-size: 15px;
+            }
+
+            .detail {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="invitation">
+
+    <div class="card">
+
+        <div class="flower top">🌸</div>
+        <div class="flower bottom">🌸</div>
+
+        <div class="welcome">
+            Together with their families
+        </div>
+
+        <div class="engagement">
+            You are cordially invited to
+        </div>
+
+        <div class="engagement">
+            The Engagement of
+        </div>
+
+        <div class="names">
+            Mohammad
+        </div>
+
+        <div class="and">
+            &
+        </div>
+
+        <div class="names">
+            Tamara
+        </div>
+
+        <div class="heart">
+            ♡
+        </div>
+
+        <p class="message">
+            We would be delighted to have you with us
+            as we celebrate this beautiful beginning.
+        </p>
+
+        <div class="details">
+
+            <div class="detail-title">
+                Date
+            </div>
+
+            <div class="detail">
+                10 / 10 / 2026
+            </div>
+
+            <div class="detail-title">
+                Time
+            </div>
+
+            <div class="detail">
+                5:30 PM – 8:00 PM
+            </div>
+
+            <div class="location">
+
+                <div class="detail-title">
+                    Location
+                </div>
+
+                <div class="detail">
+                    LUJAIN HALLS
+                </div>
+
+                <div style="margin-top: 5px;">
+                    Amman, Jordan
+                </div>
+
+                <a
+                    class="button"
+                    href="https://www.google.com/maps/search/?api=1&query=LUJAIN+HALLS+Amman"
+                    target="_blank">
+                    📍 View Location
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            MOHAMMAD & TAMARA
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
