@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Georgia, "Times New Roman", serif;
             background: #f6e8e5;
@@ -20,9 +25,149 @@
             text-align: center;
         }
 
+        /* =========================
+           OPENING SCREEN
+        ========================= */
+
+        .opening {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at top left, #fff7f5, transparent 45%),
+                radial-gradient(circle at bottom right, #efd8d4, transparent 45%),
+                #f8ebe8;
+
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
+        }
+
+        .opening.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .opening-card {
+            width: calc(100% - 40px);
+            max-width: 520px;
+            min-height: 680px;
+
+            padding: 70px 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background: rgba(255, 250, 249, 0.82);
+
+            border: 1px solid #e4c9c4;
+            border-radius: 32px;
+
+            box-shadow:
+                0 20px 70px rgba(120, 85, 80, 0.13);
+
+            animation: openingCard 1.2s ease;
+        }
+
+        .opening-small {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #9a7771;
+            margin-bottom: 45px;
+        }
+
+        .opening-names {
+            font-size: clamp(42px, 10vw, 62px);
+            line-height: 1.15;
+            color: #6e514d;
+        }
+
+        .opening-and {
+            font-size: 34px;
+            color: #c99992;
+            margin: 15px 0;
+        }
+
+        .opening-message {
+            margin-top: 45px;
+            max-width: 350px;
+
+            font-size: 17px;
+            line-height: 1.8;
+            font-style: italic;
+            color: #806560;
+        }
+
+        .opening-date {
+            margin-top: 30px;
+
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: #9a7771;
+        }
+
+        .open-button {
+            margin-top: 50px;
+
+            padding: 16px 38px;
+
+            border: 1px solid #cfa6a0;
+            border-radius: 50px;
+
+            background: #cfa6a0;
+            color: white;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 13px;
+            letter-spacing: 3px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .open-button:hover {
+            background: #b98d87;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(120, 85, 80, 0.18);
+        }
+
+        .open-button:active {
+            transform: translateY(0);
+        }
+
+        @keyframes openingCard {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* =========================
+           MAIN INVITATION
+        ========================= */
+
         .invitation {
             min-height: 100vh;
             padding: 55px 25px;
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,14 +177,32 @@
             width: 100%;
             max-width: 520px;
             min-height: 850px;
+
             padding: 55px 30px;
+
             background: rgba(255, 250, 249, 0.92);
+
             border: 1px solid #e4c9c4;
             border-radius: 30px;
+
             box-shadow: 0 15px 50px rgba(120, 85, 80, 0.12);
 
             position: relative;
             overflow: hidden;
+
+            animation: invitationAppear 1.2s ease;
+        }
+
+        @keyframes invitationAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Flowers */
@@ -108,8 +271,10 @@
         .details {
             margin-top: 45px;
             padding: 25px;
+
             border: 1px solid #e3c7c2;
             border-radius: 20px;
+
             background: #fdf6f4;
         }
 
@@ -139,12 +304,16 @@
             display: inline-block;
             margin-top: 25px;
             padding: 14px 30px;
+
             background: #cfa6a0;
             color: white;
+
             text-decoration: none;
             border-radius: 40px;
+
             font-size: 15px;
             letter-spacing: 1px;
+
             transition: 0.3s;
         }
 
@@ -163,6 +332,25 @@
         /* Mobile */
 
         @media (max-width: 600px) {
+
+            .opening-card {
+                min-height: 650px;
+                padding: 55px 22px;
+            }
+
+            .opening-small {
+                margin-bottom: 35px;
+                font-size: 10px;
+            }
+
+            .opening-message {
+                font-size: 15px;
+            }
+
+            .opening-date {
+                font-size: 12px;
+                letter-spacing: 4px;
+            }
 
             .invitation {
                 padding: 20px 12px;
@@ -191,96 +379,55 @@
 
 <body>
 
-<div class="invitation">
+    <!-- =========================
+         OPENING SCREEN
+    ========================== -->
 
-    <div class="card">
+    <div class="opening" id="opening">
 
-        <div class="flower top">🌸</div>
-        <div class="flower bottom">🌸</div>
+        <div class="opening-card">
 
-        <div class="welcome">
-            Together with their families
-        </div>
-
-        <div class="engagement">
-            You are cordially invited to
-        </div>
-
-        <div class="engagement">
-            The Engagement of
-        </div>
-
-        <div class="names">
-            Mohammad
-        </div>
-
-        <div class="and">
-            &
-        </div>
-
-        <div class="names">
-            Tamara
-        </div>
-
-        <div class="heart">
-            ♡
-        </div>
-
-        <p class="message">
-            We would be delighted to have you with us
-            as we celebrate this beautiful beginning.
-        </p>
-
-        <div class="details">
-
-            <div class="detail-title">
-                Date
+            <div class="opening-small">
+                Together with their families
             </div>
 
-            <div class="detail">
-                10 / 10 / 2026
+            <div class="opening-names">
+                Mohammad
             </div>
 
-            <div class="detail-title">
-                Time
+            <div class="opening-and">
+                &
             </div>
 
-            <div class="detail">
-                5:30 PM – 8:00 PM
+            <div class="opening-names">
+                Tamara
             </div>
 
-            <div class="location">
+            <p class="opening-message">
+                We are delighted to invite you
+                to celebrate our engagement
+            </p>
 
-                <div class="detail-title">
-                    Location
-                </div>
-
-                <div class="detail">
-                    LUJAIN HALLS
-                </div>
-
-                <div style="margin-top: 5px;">
-                    Amman, Jordan
-                </div>
-
-                <a
-                    class="button"
-                    href="https://www.google.com/maps/search/?api=1&query=LUJAIN+HALLS+Amman"
-                    target="_blank">
-                    📍 View Location
-                </a>
-
+            <div class="opening-date">
+                10 • 10 • 2026
             </div>
 
-        </div>
+            <button class="open-button" onclick="openInvitation()">
+                OPEN INVITATION
+            </button>
 
-        <div class="footer">
-            MOHAMMAD & TAMARA
         </div>
 
     </div>
 
-</div>
 
-</body>
-</html>
+    <!-- =========================
+         MAIN INVITATION
+    ========================== -->
+
+    <div class="invitation">
+
+        <div class="card">
+
+            <div class="flower top">🌸</div>
+```
