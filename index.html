@@ -1,14 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mohammad & Tamara | Engagement Invitation</title>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#20372f"
+    >
+
+    <title>
+        Mohammad & Tamara | Engagement
+    </title>
+
 
     <style>
+
+        /* =====================================================
+           LUXURY ENGAGEMENT INVITATION
+           Theme:
+           Ivory + Jade + Champagne Gold
+        ===================================================== */
+
+
         /* =========================
-           GLOBAL
+           ROOT COLORS
+        ========================== */
+
+        :root {
+
+            --ivory: #f7f3ea;
+            --paper: #fffdf8;
+            --paper-soft: #f1ede2;
+
+            --jade: #20372f;
+            --jade-light: #49675b;
+            --jade-soft: #dce5dd;
+
+            --gold: #b79a63;
+            --gold-light: #d9c79e;
+
+            --text: #26322d;
+            --muted: #74766e;
+
+            --line: rgba(183, 154, 99, 0.35);
+
+            --shadow:
+                0 30px 80px rgba(31, 52, 44, 0.15);
+        }
+
+
+        /* =========================
+           RESET
         ========================== */
 
         * {
@@ -17,252 +65,420 @@
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             background:
-                radial-gradient(circle at top left, #fff8f6, transparent 35%),
-                radial-gradient(circle at bottom right, #efd8d4, transparent 35%),
-                #f6e8e5;
-            color: #735b57;
-            text-align: center;
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(255,255,255,0.9),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(205,218,208,0.45),
+                    transparent 30%
+                ),
+
+                var(--ivory);
+
+            color: var(--text);
+
             min-height: 100vh;
+
+            overflow-x: hidden;
         }
 
-        /* =========================
+
+        button,
+        a {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
            OPENING SCREEN
-        ========================== */
+        ===================================================== */
 
         .opening {
+
             position: fixed;
+
             inset: 0;
+
             z-index: 9999;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
+            padding: 20px;
+
             background:
-                radial-gradient(circle at 20% 20%, #fffaf8, transparent 35%),
-                radial-gradient(circle at 80% 80%, #ead1cc, transparent 40%),
-                #f8ebe8;
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(255,255,255,0.12),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    #172c25,
+                    #20372f 55%,
+                    #15251f
+                );
 
             transition:
-                opacity 1s ease,
-                visibility 1s ease;
+                opacity 1.1s ease,
+                visibility 1.1s ease;
         }
 
+
         .opening.hide {
+
             opacity: 0;
+
             visibility: hidden;
+
             pointer-events: none;
         }
 
-        .opening-card {
-            width: calc(100% - 40px);
-            max-width: 520px;
-            min-height: 680px;
 
-            padding: 70px 30px;
+        /* =========================
+           GOLD FRAME
+        ========================== */
+
+        .opening::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 18px;
+
+            border: 1px solid
+                rgba(217,199,158,0.35);
+
+            pointer-events: none;
+        }
+
+
+        .opening-card {
+
+            width: min(
+                100%,
+                570px
+            );
+
+            min-height: 700px;
+
+            padding:
+                70px 35px;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
+
             align-items: center;
 
-            background: rgba(255, 250, 249, 0.9);
+            position: relative;
 
-            border: 1px solid #e4c9c4;
-            border-radius: 32px;
+            text-align: center;
 
-            box-shadow:
-                0 25px 80px rgba(120, 85, 80, 0.16);
-
-            animation: openingCard 1.2s ease;
+            color: white;
         }
 
-        .opening-small {
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #9a7771;
+
+        /* =========================
+           MONOGRAM
+        ========================== */
+
+        .monogram {
+
+            width: 90px;
+
+            height: 90px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border: 1px solid
+                var(--gold);
+
+            border-radius: 50%;
+
+            color: var(--gold-light);
+
+            font-size: 22px;
+
+            letter-spacing: 3px;
 
             margin-bottom: 45px;
+
+            position: relative;
+
+            animation:
+                monogramReveal 1.4s ease;
         }
 
-        .opening-names {
-            font-size: clamp(42px, 10vw, 62px);
-            line-height: 1.15;
-            color: #6e514d;
+
+        .monogram::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 7px;
+
+            border: 1px solid
+                rgba(217,199,158,0.35);
+
+            border-radius: 50%;
         }
 
-        .opening-and {
-            font-size: 34px;
-            color: #c99992;
-            margin: 15px 0;
-        }
 
-        .opening-message {
-            max-width: 350px;
+        .opening-small {
 
-            margin-top: 45px;
+            font-size: 11px;
 
-            font-size: 17px;
-            line-height: 1.8;
-            font-style: italic;
-
-            color: #806560;
-        }
-
-        .opening-date {
-            margin-top: 30px;
-
-            font-size: 14px;
             letter-spacing: 5px;
 
-            color: #9a7771;
+            text-transform: uppercase;
+
+            color:
+                rgba(255,255,255,0.68);
+
+            margin-bottom: 35px;
+
+            animation:
+                fadeUp 1s ease 0.15s both;
         }
+
+
+        .opening-names {
+
+            font-size:
+                clamp(
+                    48px,
+                    11vw,
+                    76px
+                );
+
+            line-height: 1.05;
+
+            font-weight: normal;
+
+            letter-spacing: -1px;
+
+            color: #fffdf8;
+
+            animation:
+                fadeUp 1s ease 0.3s both;
+        }
+
+
+        .opening-and {
+
+            margin: 14px 0;
+
+            font-size: 32px;
+
+            color: var(--gold-light);
+
+            font-style: italic;
+
+            animation:
+                fadeUp 1s ease 0.45s both;
+        }
+
+
+        .opening-message {
+
+            max-width: 390px;
+
+            margin-top: 42px;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+            color:
+                rgba(255,255,255,0.72);
+
+            animation:
+                fadeUp 1s ease 0.6s both;
+        }
+
+
+        .opening-date {
+
+            margin-top: 30px;
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            color: var(--gold-light);
+
+            animation:
+                fadeUp 1s ease 0.75s both;
+        }
+
 
         /* =========================
            OPEN BUTTON
         ========================== */
 
         .open-button {
-            margin-top: 50px;
 
-            padding: 16px 38px;
+            margin-top: 48px;
 
-            border: 1px solid #cfa6a0;
-            border-radius: 50px;
+            padding:
+                16px 34px;
 
-            background: #cfa6a0;
-            color: white;
+            border: 1px solid var(--gold);
 
-            font-family: Georgia, "Times New Roman", serif;
+            background: transparent;
 
-            font-size: 13px;
+            color: #fffdf8;
+
             letter-spacing: 3px;
+
+            font-size: 11px;
 
             cursor: pointer;
 
             transition:
-                transform 0.3s ease,
-                background 0.3s ease,
-                box-shadow 0.3s ease;
+                background 0.35s ease,
+                color 0.35s ease,
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+
+            animation:
+                fadeUp 1s ease 0.9s both;
         }
+
 
         .open-button:hover {
-            background: #b98d87;
 
-            transform: translateY(-3px);
+            background: var(--gold);
+
+            color: var(--jade);
+
+            transform:
+                translateY(-3px);
 
             box-shadow:
-                0 10px 25px rgba(120, 85, 80, 0.18);
+                0 12px 30px
+                rgba(183,154,99,0.22);
         }
 
-        .open-button:active {
-            transform: translateY(0);
-        }
 
-        /* =========================
-           OPENING ANIMATION
-        ========================== */
-
-        @keyframes openingCard {
-
-            from {
-                opacity: 0;
-                transform:
-                    translateY(25px)
-                    scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-        }
-
-        /* =========================
-           INVITATION
-        ========================== */
+        /* =====================================================
+           MAIN INVITATION
+        ===================================================== */
 
         .invitation {
+
             min-height: 100vh;
 
-            padding: 55px 25px;
+            padding:
+                70px 20px;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
         }
+
 
         /* =========================
            MAIN CARD
         ========================== */
 
         .card {
-            width: 100%;
-            max-width: 520px;
-            min-height: 850px;
 
-            padding: 55px 30px;
+            width: 100%;
+
+            max-width: 650px;
 
             position: relative;
+
             overflow: hidden;
 
             background:
                 linear-gradient(
-                    135deg,
+                    145deg,
                     rgba(255,255,255,0.96),
-                    rgba(253,246,244,0.94)
+                    rgba(249,246,237,0.98)
                 );
 
-            border: 1px solid #e4c9c4;
-            border-radius: 30px;
+            border:
+                1px solid
+                rgba(183,154,99,0.32);
 
-            box-shadow:
-                0 20px 70px rgba(120, 85, 80, 0.15);
+            box-shadow: var(--shadow);
+
+            padding:
+                70px 45px;
 
             opacity: 0;
+
             transform:
-                translateY(40px)
-                scale(0.96);
+                translateY(45px)
+                scale(0.97);
         }
 
-        /* =========================
-           CARD REVEAL
-        ========================== */
 
-        .invitation.show-card .card {
+        .invitation.show .card {
+
             animation:
-                cardReveal 1.2s ease-out forwards;
+                cardReveal 1.2s
+                cubic-bezier(.2,.8,.2,1)
+                forwards;
         }
+
 
         @keyframes cardReveal {
 
             0% {
+
                 opacity: 0;
 
                 transform:
-                    translateY(40px)
-                    scale(0.96);
+                    translateY(45px)
+                    scale(0.97);
             }
 
-            60% {
+            65% {
+
                 opacity: 1;
 
                 transform:
-                    translateY(-5px)
-                    scale(1.01);
+                    translateY(-6px)
+                    scale(1.005);
             }
 
             100% {
+
                 opacity: 1;
 
                 transform:
@@ -271,563 +487,1256 @@
             }
         }
 
+
         /* =========================
-           FLOWERS
+           CARD BORDER
         ========================== */
 
-        .flower {
+        .card::before {
+
+            content: "";
+
             position: absolute;
 
-            font-size: 65px;
+            inset: 14px;
 
-            opacity: 0.55;
+            border:
+                1px solid
+                rgba(183,154,99,0.27);
 
-            animation:
-                flowerFloat 4s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        .flower.top {
-            top: 10px;
-            left: 5px;
-
-            animation-delay: 0s;
-        }
-
-        .flower.bottom {
-            bottom: 5px;
-            right: 5px;
-
-            animation-delay: 1.5s;
-        }
-
-        @keyframes flowerFloat {
-
-            0% {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
-
-            50% {
-                transform:
-                    translateY(-10px)
-                    rotate(5deg);
-            }
-
-            100% {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
-        }
 
         /* =========================
-           CONTENT REVEAL
+           DECORATIVE CORNERS
         ========================== */
 
-        .welcome,
-        .engagement,
-        .names,
-        .and,
-        .heart,
-        .message,
-        .details,
-        .footer {
-            opacity: 0;
-            transform: translateY(15px);
+        .corner {
+
+            position: absolute;
+
+            width: 70px;
+
+            height: 70px;
+
+            border-color:
+                rgba(183,154,99,0.55);
+
+            border-style: solid;
+
+            opacity: 0.65;
         }
 
-        .show-card .welcome {
-            animation:
-                contentReveal 0.7s ease forwards;
 
-            animation-delay: 0.2s;
+        .corner.one {
+
+            top: 25px;
+            left: 25px;
+
+            border-width:
+                1px 0 0 1px;
         }
 
-        .show-card .engagement {
-            animation:
-                contentReveal 0.7s ease forwards;
 
-            animation-delay: 0.4s;
+        .corner.two {
+
+            top: 25px;
+            right: 25px;
+
+            border-width:
+                1px 1px 0 0;
         }
 
-        .show-card .names {
-            animation:
-                contentReveal 0.7s ease forwards;
 
-            animation-delay: 0.6s;
+        .corner.three {
+
+            bottom: 25px;
+            left: 25px;
+
+            border-width:
+                0 0 1px 1px;
         }
 
-        .show-card .and {
-            animation:
-                contentReveal 0.7s ease forwards;
 
-            animation-delay: 0.8s;
+        .corner.four {
+
+            bottom: 25px;
+            right: 25px;
+
+            border-width:
+                0 1px 1px 0;
         }
 
-        .show-card .heart {
-            animation:
-                heartReveal 0.8s ease forwards;
 
-            animation-delay: 1s;
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        .content {
+
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
         }
 
-        .show-card .message {
-            animation:
-                contentReveal 0.7s ease forwards;
 
-            animation-delay: 1.2s;
-        }
+        .top-label {
 
-        .show-card .details {
-            animation:
-                contentReveal 0.7s ease forwards;
+            font-size: 10px;
 
-            animation-delay: 1.4s;
-        }
-
-        .show-card .footer {
-            animation:
-                contentReveal 0.7s ease forwards;
-
-            animation-delay: 1.6s;
-        }
-
-        @keyframes contentReveal {
-
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes heartReveal {
-
-            0% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-
-            70% {
-                opacity: 1;
-                transform: scale(1.15);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* =========================
-           TEXT
-        ========================== */
-
-        .welcome {
-            font-size: 12px;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
 
             text-transform: uppercase;
 
-            margin-bottom: 35px;
+            color: var(--jade-light);
 
-            color: #9a7771;
+            margin-bottom: 28px;
+
+            opacity: 0;
         }
 
-        .engagement {
-            font-size: 22px;
+
+        .show .top-label {
+
+            animation:
+                fadeUp .7s ease .25s forwards;
+        }
+
+
+        .invitation-title {
+
+            font-size: 16px;
+
+            letter-spacing: 2px;
+
+            color: var(--muted);
 
             font-style: italic;
 
-            margin-bottom: 20px;
+            opacity: 0;
         }
+
+
+        .show .invitation-title {
+
+            animation:
+                fadeUp .7s ease .4s forwards;
+        }
+
 
         .names {
-            font-size: 48px;
-            line-height: 1.15;
 
-            color: #6e514d;
+            margin-top: 25px;
+
+            font-size:
+                clamp(
+                    48px,
+                    10vw,
+                    72px
+                );
+
+            line-height: 1;
+
+            font-weight: normal;
+
+            color: var(--jade);
+
+            letter-spacing: -1px;
+
+            opacity: 0;
         }
 
-        .and {
+
+        .show .names {
+
+            animation:
+                fadeUp .9s ease .55s forwards;
+        }
+
+
+        .ampersand {
+
+            margin:
+                15px 0;
+
             font-size: 32px;
 
-            color: #c99992;
+            font-style: italic;
 
-            margin: 12px 0;
+            color: var(--gold);
+
+            opacity: 0;
         }
 
-        .heart {
-            font-size: 28px;
 
-            color: #c99992;
+        .show .ampersand {
 
-            margin: 22px 0;
+            animation:
+                heartReveal .8s ease .8s forwards;
         }
+
+
+        .small-divider {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin:
+                35px 0 30px;
+
+            opacity: 0;
+        }
+
+
+        .show .small-divider {
+
+            animation:
+                fadeUp .7s ease 1s forwards;
+        }
+
+
+        .small-divider span {
+
+            width: 50px;
+
+            height: 1px;
+
+            background:
+                var(--line);
+        }
+
+
+        .small-divider i {
+
+            width: 6px;
+
+            height: 6px;
+
+            border:
+                1px solid var(--gold);
+
+            transform:
+                rotate(45deg);
+        }
+
 
         .message {
-            max-width: 380px;
+
+            max-width: 440px;
 
             margin: auto;
 
-            font-size: 17px;
-            line-height: 1.8;
+            font-size: 16px;
+
+            line-height: 2;
+
+            color: var(--muted);
+
+            opacity: 0;
         }
 
-        /* =========================
-           DETAILS
-        ========================== */
 
-        .details {
+        .show .message {
+
+            animation:
+                fadeUp .8s ease 1.1s forwards;
+        }
+
+
+        /* =====================================================
+           EVENT INFO
+        ===================================================== */
+
+        .event-box {
+
             margin-top: 45px;
 
-            padding: 25px;
+            padding:
+                30px 20px;
 
-            border: 1px solid #e3c7c2;
+            background:
+                rgba(220,229,221,0.35);
 
-            border-radius: 20px;
+            border:
+                1px solid
+                rgba(32,55,47,0.10);
 
-            background: #fdf6f4;
+            opacity: 0;
         }
 
-        .detail-title {
-            margin-top: 15px;
 
-            font-size: 11px;
+        .show .event-box {
+
+            animation:
+                fadeUp .8s ease 1.3s forwards;
+        }
+
+
+        .event-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .event-item {
+
+            padding:
+                10px 8px;
+        }
+
+
+        .event-item:not(:last-child) {
+
+            border-right:
+                1px solid
+                rgba(183,154,99,0.28);
+        }
+
+
+        .event-label {
+
+            font-size: 9px;
 
             letter-spacing: 3px;
 
             text-transform: uppercase;
 
-            color: #a17c76;
+            color: var(--gold);
+
+            margin-bottom: 10px;
         }
 
-        .detail {
-            margin-top: 8px;
 
-            font-size: 21px;
+        .event-value {
 
-            color: #6f5550;
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            color: var(--jade);
         }
 
-        /* =========================
+
+        /* =====================================================
            LOCATION
-        ========================== */
+        ===================================================== */
 
         .location {
-            margin-top: 25px;
 
-            padding-top: 20px;
+            margin-top: 35px;
+
+            padding-top: 30px;
 
             border-top:
-                1px solid #ead6d2;
+                1px solid
+                rgba(183,154,99,0.25);
+
+            opacity: 0;
         }
 
-        /* =========================
-           MAP BUTTON
-        ========================== */
 
-        .button {
-            display: inline-block;
+        .show .location {
 
-            margin-top: 25px;
+            animation:
+                fadeUp .8s ease 1.5s forwards;
+        }
 
-            padding: 14px 30px;
 
-            background: #cfa6a0;
+        .location-title {
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: var(--gold);
+
+            margin-bottom: 12px;
+        }
+
+
+        .location-name {
+
+            font-size: 24px;
+
+            color: var(--jade);
+
+            margin-bottom: 7px;
+        }
+
+
+        .location-city {
+
+            font-size: 14px;
+
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .actions {
+
+            margin-top: 28px;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            opacity: 0;
+        }
+
+
+        .show .actions {
+
+            animation:
+                fadeUp .8s ease 1.65s forwards;
+        }
+
+
+        .action-button {
+
+            display: inline-flex;
+
+            justify-content: center;
+            align-items: center;
+
+            min-width: 150px;
+
+            padding:
+                13px 20px;
+
+            border: 1px solid
+                var(--jade);
+
+            background:
+                var(--jade);
 
             color: white;
 
             text-decoration: none;
 
-            border-radius: 40px;
+            font-size: 10px;
 
-            font-size: 15px;
+            letter-spacing: 2px;
 
-            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            cursor: pointer;
 
             transition:
                 0.3s ease;
         }
 
-        .button:hover {
-            background: #b98d87;
+
+        .action-button.secondary {
+
+            background: transparent;
+
+            color: var(--jade);
+
+            border-color:
+                rgba(32,55,47,0.25);
+        }
+
+
+        .action-button:hover {
 
             transform:
                 translateY(-2px);
 
             box-shadow:
-                0 8px 20px rgba(120, 85, 80, 0.15);
+                0 10px 25px
+                rgba(32,55,47,0.12);
         }
 
-        /* =========================
+
+        .action-button.secondary:hover {
+
+            background:
+                var(--jade-soft);
+        }
+
+
+        /* =====================================================
+           COUNTDOWN
+        ===================================================== */
+
+        .countdown-section {
+
+            margin-top: 55px;
+
+            padding-top: 35px;
+
+            border-top:
+                1px solid
+                rgba(183,154,99,0.25);
+
+            opacity: 0;
+        }
+
+
+        .show .countdown-section {
+
+            animation:
+                fadeUp .8s ease 1.8s forwards;
+        }
+
+
+        .countdown-title {
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: var(--gold);
+
+            margin-bottom: 22px;
+        }
+
+
+        .countdown {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            max-width: 430px;
+
+            margin: auto;
+        }
+
+
+        .count-number {
+
+            font-size: 28px;
+
+            color: var(--jade);
+
+            line-height: 1;
+        }
+
+
+        .count-label {
+
+            margin-top: 8px;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
            FOOTER
-        ========================== */
+        ===================================================== */
 
         .footer {
-            margin-top: 40px;
 
-            font-size: 13px;
+            margin-top: 50px;
 
-            letter-spacing: 3px;
+            color: var(--jade);
 
-            color: #9a7771;
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            opacity: 0;
         }
 
-        /* =========================
+
+        .show .footer {
+
+            animation:
+                fadeUp .8s ease 2s forwards;
+        }
+
+
+        .footer-heart {
+
+            display: block;
+
+            margin-top: 15px;
+
+            color: var(--gold);
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           GOLD PARTICLES
+        ===================================================== */
+
+        .particle {
+
+            position: fixed;
+
+            width: 4px;
+
+            height: 4px;
+
+            background: var(--gold);
+
+            transform: rotate(45deg);
+
+            pointer-events: none;
+
+            z-index: 10000;
+
+            animation:
+                particleFall
+                linear forwards;
+        }
+
+
+        @keyframes particleFall {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-20px)
+                    rotate(45deg)
+                    scale(0.6);
+            }
+
+            15% {
+                opacity: 0.8;
+            }
+
+            to {
+
+                opacity: 0;
+
+                transform:
+                    translateY(100vh)
+                    rotate(180deg)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           GENERAL ANIMATIONS
+        ===================================================== */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(18px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes heartReveal {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.5);
+            }
+
+            70% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.15);
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        @keyframes monogramReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.7)
+                    rotate(-15deg);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    rotate(0);
+            }
+        }
+
+
+        /* =====================================================
            MOBILE
-        ========================== */
+        ===================================================== */
 
         @media (max-width: 600px) {
 
             .opening-card {
+
                 min-height: 650px;
 
                 padding:
-                    55px 22px;
+                    50px 20px;
             }
+
 
             .opening-small {
-                margin-bottom: 35px;
 
-                font-size: 10px;
-            }
-
-            .opening-message {
-                font-size: 15px;
-            }
-
-            .opening-date {
-                font-size: 12px;
+                font-size: 9px;
 
                 letter-spacing: 4px;
             }
 
-            .invitation {
-                padding:
-                    20px 12px;
+
+            .opening-message {
+
+                font-size: 14px;
             }
+
+
+            .opening-date {
+
+                font-size: 11px;
+
+                letter-spacing: 4px;
+            }
+
+
+            .invitation {
+
+                padding:
+                    25px 12px;
+            }
+
 
             .card {
-                min-height: 800px;
 
                 padding:
-                    45px 22px;
+                    60px 22px;
 
-                border-radius: 25px;
+                box-shadow:
+                    0 20px 50px
+                    rgba(31,52,44,0.12);
             }
+
+
+            .card::before {
+
+                inset: 10px;
+            }
+
+
+            .corner {
+
+                width: 45px;
+
+                height: 45px;
+            }
+
+
+            .event-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .event-item:not(:last-child) {
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid
+                    rgba(183,154,99,0.25);
+
+                padding-bottom: 18px;
+
+                margin-bottom: 5px;
+            }
+
 
             .names {
-                font-size: 40px;
+
+                font-size: 48px;
             }
 
-            .message {
-                font-size: 15px;
+
+            .event-value {
+
+                font-size: 14px;
             }
 
-            .detail {
-                font-size: 18px;
+
+            .count-number {
+
+                font-size: 24px;
             }
 
-            .flower {
-                font-size: 50px;
+
+            .action-button {
+
+                width: 100%;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                scroll-behavior: auto !important;
             }
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-         OPENING SCREEN
-    ========================== -->
 
-    <div class="opening" id="opening">
+    <!-- =====================================================
+         OPENING SCREEN
+    ===================================================== -->
+
+    <section
+        class="opening"
+        id="opening"
+    >
 
         <div class="opening-card">
+
+
+            <div class="monogram">
+                M&nbsp;&amp;&nbsp;T
+            </div>
+
 
             <div class="opening-small">
                 Together with their families
             </div>
 
+
             <div class="opening-names">
                 Mohammad
             </div>
+
 
             <div class="opening-and">
                 &
             </div>
 
+
             <div class="opening-names">
                 Tamara
             </div>
 
+
             <p class="opening-message">
-                We are delighted to invite you
-                to celebrate our engagement
+
+                We would be delighted
+                to have you join us
+                as we celebrate
+                our engagement.
+
             </p>
+
 
             <div class="opening-date">
                 10 • 10 • 2026
             </div>
 
+
             <button
                 class="open-button"
-                onclick="openInvitation()">
+                onclick="openInvitation()"
+            >
 
                 OPEN INVITATION
 
             </button>
 
+
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          MAIN INVITATION
-    ========================== -->
+    ===================================================== -->
 
-    <div class="invitation">
-
-        <div class="card">
-
-            <!-- Decorative Flowers -->
-
-            <div class="flower top">
-                🌸
-            </div>
-
-            <div class="flower bottom">
-                🌸
-            </div>
+    <main
+        class="invitation"
+        id="invitation"
+    >
 
 
-            <!-- Welcome -->
-
-            <div class="welcome">
-                Together with their families
-            </div>
+        <article class="card">
 
 
-            <!-- Invitation Text -->
+            <!-- Decorative corners -->
 
-            <div class="engagement">
-                You are cordially invited to
-            </div>
-
-            <div class="engagement">
-                The Engagement of
-            </div>
+            <div class="corner one"></div>
+            <div class="corner two"></div>
+            <div class="corner three"></div>
+            <div class="corner four"></div>
 
 
-            <!-- Names -->
-
-            <div class="names">
-                Mohammad
-            </div>
-
-            <div class="and">
-                &
-            </div>
-
-            <div class="names">
-                Tamara
-            </div>
+            <div class="content">
 
 
-            <!-- Heart -->
+                <!-- Header -->
 
-            <div class="heart">
-                ♡
-            </div>
-
-
-            <!-- Message -->
-
-            <p class="message">
-                We would be delighted to have you with us
-                as we celebrate this beautiful beginning.
-            </p>
-
-
-            <!-- Event Details -->
-
-            <div class="details">
-
-                <div class="detail-title">
-                    Date
-                </div>
-
-                <div class="detail">
-                    10 / 10 / 2026
+                <div class="top-label">
+                    A Celebration of Love
                 </div>
 
 
-                <div class="detail-title">
-                    Time
+                <div class="invitation-title">
+                    You are cordially invited to
                 </div>
 
-                <div class="detail">
-                    5:30 PM – 8:00 PM
+
+                <!-- Names -->
+
+                <div class="names">
+                    Mohammad
                 </div>
+
+
+                <div class="ampersand">
+                    &
+                </div>
+
+
+                <div class="names">
+                    Tamara
+                </div>
+
+
+                <!-- Divider -->
+
+                <div class="small-divider">
+
+                    <span></span>
+
+                    <i></i>
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- Message -->
+
+                <p class="message">
+
+                    With joyful hearts and
+                    surrounded by our families,
+                    we invite you to share
+                    a beautiful evening with us
+                    as we celebrate
+                    the beginning of our journey together.
+
+                </p>
+
+
+
+                <!-- Event Details -->
+
+                <section class="event-box">
+
+
+                    <div class="event-grid">
+
+
+                        <div class="event-item">
+
+                            <div class="event-label">
+                                Date
+                            </div>
+
+                            <div class="event-value">
+                                Saturday<br>
+                                10 October 2026
+                            </div>
+
+                        </div>
+
+
+                        <div class="event-item">
+
+                            <div class="event-label">
+                                Time
+                            </div>
+
+                            <div class="event-value">
+                                5:30 PM<br>
+                                — 8:00 PM
+                            </div>
+
+                        </div>
+
+
+                        <div class="event-item">
+
+                            <div class="event-label">
+                                Dress
+                            </div>
+
+                            <div class="event-value">
+                                Elegant<br>
+                                Evening
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
 
 
                 <!-- Location -->
 
-                <div class="location">
+                <section class="location">
 
-                    <div class="detail-title">
-                        Location
+
+                    <div class="location-title">
+                        The Celebration
                     </div>
 
-                    <div class="detail">
+
+                    <div class="location-name">
                         LUJAIN HALLS
                     </div>
 
-                    <div style="margin-top: 5px;">
+
+                    <div class="location-city">
                         Amman, Jordan
                     </div>
 
 
-                    <!-- Google Maps -->
+                    <div class="actions">
 
-                    <a
-                        class="button"
-                        href="https://www.google.com/maps/search/?api=1&query=LUJAIN+HALLS+Amman"
-                        target="_blank">
 
-                        📍 View Location
+                        <a
+                            class="action-button"
+                            href="https://www.google.com/maps/search/?api=1&query=LUJAIN+HALLS+Amman"
+                            target="_blank"
+                            rel="noopener"
+                        >
 
-                    </a>
+                            View Location
+
+                        </a>
+
+
+                        <button
+                            class="action-button secondary"
+                            onclick="addToCalendar()"
+                        >
+
+                            Add to Calendar
+
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- Countdown -->
+
+                <section
+                    class="countdown-section"
+                >
+
+
+                    <div class="countdown-title">
+                        Counting the Moments
+                    </div>
+
+
+                    <div class="countdown">
+
+
+                        <div>
+
+                            <div
+                                class="count-number"
+                                id="days"
+                            >
+                                00
+                            </div>
+
+                            <div class="count-label">
+                                Days
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                class="count-number"
+                                id="hours"
+                            >
+                                00
+                            </div>
+
+                            <div class="count-label">
+                                Hours
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                class="count-number"
+                                id="minutes"
+                            >
+                                00
+                            </div>
+
+                            <div class="count-label">
+                                Minutes
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                class="count-number"
+                                id="seconds"
+                            >
+                                00
+                            </div>
+
+                            <div class="count-label">
+                                Seconds
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- Footer -->
+
+                <div class="footer">
+
+                    MOHAMMAD & TAMARA
+
+                    <span class="footer-heart">
+                        ♡
+                    </span>
 
                 </div>
 
+
             </div>
 
+        </article>
 
-            <!-- Footer -->
-
-            <div class="footer">
-                MOHAMMAD & TAMARA
-            </div>
-
-        </div>
-
-    </div>
+    </main>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          JAVASCRIPT
-    ========================== -->
+    ===================================================== -->
 
     <script>
+
+
+        /* =====================================================
+           OPEN INVITATION
+        ===================================================== */
 
         function openInvitation() {
 
@@ -835,20 +1744,17 @@
                 document.getElementById("opening");
 
             const invitation =
-                document.querySelector(".invitation");
+                document.getElementById("invitation");
 
-
-            /* Hide Opening */
 
             opening.classList.add("hide");
 
 
-            /* Show Invitation */
-
             setTimeout(() => {
 
-                invitation.classList.add("show-card");
+                invitation.classList.add("show");
 
+                createParticles();
 
                 window.scrollTo({
 
@@ -858,11 +1764,246 @@
 
                 });
 
-            }, 300);
+            }, 450);
 
         }
 
+
+
+        /* =====================================================
+           GOLD PARTICLES
+        ===================================================== */
+
+        function createParticles() {
+
+            for (
+                let i = 0;
+                i < 24;
+                i++
+            ) {
+
+                const particle =
+                    document.createElement("div");
+
+
+                particle.className =
+                    "particle";
+
+
+                particle.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                particle.style.top =
+                    (-10 - Math.random() * 20) + "px";
+
+
+                particle.style.animationDuration =
+                    (3 + Math.random() * 4) + "s";
+
+
+                particle.style.animationDelay =
+                    (Math.random() * 1.5) + "s";
+
+
+                document.body.appendChild(
+                    particle
+                );
+
+
+                setTimeout(() => {
+
+                    particle.remove();
+
+                }, 8000);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           COUNTDOWN
+        ===================================================== */
+
+        const eventDate =
+            new Date(
+                "October 10, 2026 17:30:00"
+            ).getTime();
+
+
+        function updateCountdown() {
+
+            const now =
+                new Date().getTime();
+
+
+            const distance =
+                eventDate - now;
+
+
+            if (distance <= 0) {
+
+                document.getElementById("days")
+                    .textContent = "00";
+
+                document.getElementById("hours")
+                    .textContent = "00";
+
+                document.getElementById("minutes")
+                    .textContent = "00";
+
+                document.getElementById("seconds")
+                    .textContent = "00";
+
+                return;
+            }
+
+
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+                    (distance %
+                    (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (distance %
+                    (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
+
+
+            const seconds =
+                Math.floor(
+                    (distance %
+                    (1000 * 60)) /
+                    1000
+                );
+
+
+            document.getElementById("days")
+                .textContent =
+                String(days).padStart(2, "0");
+
+
+            document.getElementById("hours")
+                .textContent =
+                String(hours).padStart(2, "0");
+
+
+            document.getElementById("minutes")
+                .textContent =
+                String(minutes).padStart(2, "0");
+
+
+            document.getElementById("seconds")
+                .textContent =
+                String(seconds).padStart(2, "0");
+
+        }
+
+
+        updateCountdown();
+
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+
+
+        /* =====================================================
+           ADD TO CALENDAR
+        ===================================================== */
+
+        function addToCalendar() {
+
+            const title =
+                "Mohammad & Tamara — Engagement";
+
+
+            const start =
+                "20261010T173000";
+
+
+            const end =
+                "20261010T200000";
+
+
+            const location =
+                "LUJAIN HALLS, Amman, Jordan";
+
+
+            const description =
+                "Engagement celebration of Mohammad & Tamara.";
+
+
+            const ics =
+
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mohammad & Tamara//Engagement//EN
+BEGIN:VEVENT
+UID:mohammad-tamara-engagement-2026
+DTSTAMP:20260101T120000Z
+DTSTART:${start}
+DTEND:${end}
+SUMMARY:${title}
+LOCATION:${location}
+DESCRIPTION:${description}
+END:VEVENT
+END:VCALENDAR`;
+
+
+            const blob =
+                new Blob(
+                    [ics],
+                    {
+                        type:
+                            "text/calendar;charset=utf-8"
+                    }
+                );
+
+
+            const url =
+                URL.createObjectURL(blob);
+
+
+            const link =
+                document.createElement("a");
+
+
+            link.href = url;
+
+            link.download =
+                "Mohammad-Tamara-Engagement.ics";
+
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+
+
+            URL.revokeObjectURL(url);
+
+        }
+
+
     </script>
+
 
 </body>
 </html>
