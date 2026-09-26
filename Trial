@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Mohammad & Tamara | Theme Preview
+    </title>
+
+
+    <style>
+
+        /* =====================================================
+           THEME SYSTEM
+        ===================================================== */
+
+        :root {
+
+            --bg: #f7f3ea;
+            --card: #fffdf8;
+            --card-soft: #eef1ea;
+
+            --primary: #20372f;
+            --secondary: #49675b;
+
+            --accent: #b79a63;
+            --accent-light: #d9c79e;
+
+            --text: #26322d;
+            --muted: #74766e;
+
+            --border:
+                rgba(183,154,99,0.35);
+
+            --shadow:
+                rgba(31,52,44,0.15);
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            background: var(--bg);
+
+            color: var(--text);
+
+            min-height: 100vh;
+
+            transition:
+                background 0.6s ease,
+                color 0.6s ease;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           THEME SELECTOR
+        ===================================================== */
+
+        .theme-bar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 5000;
+
+            padding:
+                16px 20px;
+
+            background:
+                rgba(255,255,255,0.92);
+
+            backdrop-filter:
+                blur(15px);
+
+            border-bottom:
+                1px solid
+                rgba(0,0,0,0.08);
+
+            text-align: center;
+        }
+
+
+        .theme-title {
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: var(--muted);
+
+            margin-bottom: 13px;
+        }
+
+
+        .theme-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+
+        .theme-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                8px 12px;
+
+            border:
+                1px solid
+                rgba(0,0,0,0.12);
+
+            border-radius: 30px;
+
+            background: white;
+
+            color: #333;
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+
+        .theme-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 6px 18px
+                rgba(0,0,0,0.10);
+        }
+
+
+        .theme-button.active {
+
+            border-color:
+                var(--accent);
+
+            box-shadow:
+                0 0 0 2px
+                rgba(183,154,99,0.18);
+        }
+
+
+        .theme-dot {
+
+            width: 15px;
+
+            height: 15px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(0,0,0,0.15);
+
+            flex-shrink: 0;
+        }
+
+
+        /* =====================================================
+           PREVIEW AREA
+        ===================================================== */
+
+        .preview {
+
+            min-height:
+                calc(100vh - 100px);
+
+            padding:
+                60px 20px 80px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            transition:
+                background 0.6s ease;
+        }
+
+
+        /* =====================================================
+           INVITATION
+        ===================================================== */
+
+        .invitation {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            background:
+                var(--card);
+
+            border:
+                1px solid
+                var(--border);
+
+            box-shadow:
+                0 30px 80px
+                var(--shadow);
+
+            padding:
+                75px 45px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition:
+                background 0.6s ease,
+                border-color 0.6s ease,
+                box-shadow 0.6s ease;
+
+            animation:
+                cardEnter 0.8s ease;
+        }
+
+
+        @keyframes cardEnter {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px)
+                    scale(0.98);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           DECORATIVE FRAME
+        ===================================================== */
+
+        .invitation::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 14px;
+
+            border:
+                1px solid
+                var(--border);
+
+            pointer-events: none;
+
+            transition:
+                border-color 0.6s ease;
+        }
+
+
+        .corner {
+
+            position: absolute;
+
+            width: 65px;
+
+            height: 65px;
+
+            border-color:
+                var(--accent);
+
+            border-style: solid;
+
+            opacity: 0.6;
+
+            transition:
+                border-color 0.6s ease;
+        }
+
+
+        .corner.one {
+
+            top: 25px;
+            left: 25px;
+
+            border-width:
+                1px 0 0 1px;
+        }
+
+
+        .corner.two {
+
+            top: 25px;
+            right: 25px;
+
+            border-width:
+                1px 1px 0 0;
+        }
+
+
+        .corner.three {
+
+            bottom: 25px;
+            left: 25px;
+
+            border-width:
+                0 0 1px 1px;
+        }
+
+
+        .corner.four {
+
+            bottom: 25px;
+            right: 25px;
+
+            border-width:
+                0 1px 1px 0;
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        .content {
+
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+        }
+
+
+        .monogram {
+
+            width: 82px;
+
+            height: 82px;
+
+            margin:
+                0 auto 35px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border:
+                1px solid
+                var(--accent);
+
+            border-radius: 50%;
+
+            color:
+                var(--accent);
+
+            font-size: 19px;
+
+            letter-spacing: 2px;
+
+            transition:
+                color 0.6s ease,
+                border-color 0.6s ease;
+        }
+
+
+        .top-label {
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            color:
+                var(--secondary);
+
+            margin-bottom: 25px;
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        .subtitle {
+
+            font-size: 16px;
+
+            font-style: italic;
+
+            color:
+                var(--muted);
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        .names {
+
+            margin-top: 25px;
+
+            font-size:
+                clamp(
+                    48px,
+                    10vw,
+                    72px
+                );
+
+            line-height: 1;
+
+            font-weight: normal;
+
+            color:
+                var(--primary);
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        .and {
+
+            margin:
+                15px 0;
+
+            font-size: 32px;
+
+            font-style: italic;
+
+            color:
+                var(--accent);
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        /* =====================================================
+           DIVIDER
+        ===================================================== */
+
+        .divider {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin:
+                35px 0 30px;
+        }
+
+
+        .divider span {
+
+            width: 55px;
+
+            height: 1px;
+
+            background:
+                var(--border);
+
+            transition:
+                background 0.6s ease;
+        }
+
+
+        .divider i {
+
+            width: 7px;
+
+            height: 7px;
+
+            border:
+                1px solid
+                var(--accent);
+
+            transform:
+                rotate(45deg);
+
+            transition:
+                border-color 0.6s ease;
+        }
+
+
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
+
+        .message {
+
+            max-width: 450px;
+
+            margin: auto;
+
+            font-size: 16px;
+
+            line-height: 2;
+
+            color:
+                var(--muted);
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        /* =====================================================
+           EVENT BOX
+        ===================================================== */
+
+        .event-box {
+
+            margin-top: 45px;
+
+            padding:
+                30px 20px;
+
+            background:
+                var(--card-soft);
+
+            border:
+                1px solid
+                rgba(0,0,0,0.07);
+
+            transition:
+                background 0.6s ease;
+        }
+
+
+        .event-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .event-item {
+
+            padding: 10px;
+        }
+
+
+        .event-item:not(:last-child) {
+
+            border-right:
+                1px solid
+                var(--border);
+        }
+
+
+        .event-label {
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color:
+                var(--accent);
+
+            margin-bottom: 10px;
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        .event-value {
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            color:
+                var(--primary);
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        /* =====================================================
+           LOCATION
+        ===================================================== */
+
+        .location {
+
+            margin-top: 35px;
+
+            padding-top: 30px;
+
+            border-top:
+                1px solid
+                var(--border);
+        }
+
+
+        .location-label {
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color:
+                var(--accent);
+
+            margin-bottom: 12px;
+        }
+
+
+        .location-name {
+
+            font-size: 24px;
+
+            color:
+                var(--primary);
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        .location-city {
+
+            margin-top: 7px;
+
+            font-size: 14px;
+
+            color:
+                var(--muted);
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .map-button {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding:
+                13px 25px;
+
+            background:
+                var(--primary);
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition:
+                background 0.6s ease,
+                transform 0.25s ease;
+        }
+
+
+        .map-button:hover {
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           COUNTDOWN
+        ===================================================== */
+
+        .countdown {
+
+            margin-top: 50px;
+
+            padding-top: 30px;
+
+            border-top:
+                1px solid
+                var(--border);
+        }
+
+
+        .countdown-title {
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color:
+                var(--accent);
+
+            margin-bottom: 22px;
+        }
+
+
+        .count-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            max-width: 430px;
+
+            margin: auto;
+        }
+
+
+        .number {
+
+            font-size: 27px;
+
+            color:
+                var(--primary);
+
+            transition:
+                color 0.6s ease;
+        }
+
+
+        .label {
+
+            margin-top: 8px;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color:
+                var(--muted);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+
+            margin-top: 50px;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            color:
+                var(--primary);
+        }
+
+
+        .footer-heart {
+
+            display: block;
+
+            margin-top: 13px;
+
+            color:
+                var(--accent);
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .theme-bar {
+
+                padding:
+                    13px 10px;
+            }
+
+
+            .theme-title {
+
+                font-size: 8px;
+
+                letter-spacing: 3px;
+            }
+
+
+            .theme-buttons {
+
+                gap: 6px;
+            }
+
+
+            .theme-button {
+
+                font-size: 9px;
+
+                padding:
+                    7px 9px;
+            }
+
+
+            .theme-dot {
+
+                width: 12px;
+
+                height: 12px;
+            }
+
+
+            .preview {
+
+                padding:
+                    30px 12px 50px;
+            }
+
+
+            .invitation {
+
+                padding:
+                    60px 22px;
+
+                box-shadow:
+                    0 20px 50px
+                    var(--shadow);
+            }
+
+
+            .invitation::before {
+
+                inset: 10px;
+            }
+
+
+            .corner {
+
+                width: 45px;
+
+                height: 45px;
+            }
+
+
+            .event-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .event-item:not(:last-child) {
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid
+                    var(--border);
+
+                padding-bottom: 18px;
+
+                margin-bottom: 5px;
+            }
+
+
+            .names {
+
+                font-size: 48px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         THEME SELECTOR
+    ===================================================== -->
+
+    <header class="theme-bar">
+
+
+        <div class="theme-title">
+            Choose Your Invitation Theme
+        </div>
+
+
+        <div class="theme-buttons">
+
+
+            <button
+                class="theme-button active"
+                data-theme="jade"
+                onclick="setTheme('jade')"
+            >
+
+                <span
+                    class="theme-dot"
+                    style="background:#20372f"
+                ></span>
+
+                Jade Luxury
+
+            </button>
+
+
+            <button
+                class="theme-button"
+                data-theme="black"
+                onclick="setTheme('black')"
+            >
+
+                <span
+                    class="theme-dot"
+                    style="background:#151515"
+                ></span>
+
+                Black & Gold
+
+            </button>
+
+
+            <button
+                class="theme-button"
+                data-theme="mocha"
+                onclick="setTheme('mocha')"
+            >
+
+                <span
+                    class="theme-dot"
+                    style="background:#6b5145"
+                ></span>
+
+                Mocha Luxury
+
+            </button>
+
+
+            <button
+                class="theme-button"
+                data-theme="burgundy"
+                onclick="setTheme('burgundy')"
+            >
+
+                <span
+                    class="theme-dot"
+                    style="background:#641f2a"
+                ></span>
+
+                Burgundy
+
+            </button>
+
+
+            <button
+                class="theme-button"
+                data-theme="sage"
+                onclick="setTheme('sage')"
+            >
+
+                <span
+                    class="theme-dot"
+                    style="background:#819486"
+                ></span>
+
+                Sage Pearl
+
+            </button>
+
+
+            <button
+                class="theme-button"
+                data-theme="white"
+                onclick="setTheme('white')"
+            >
+
+                <span
+                    class="theme-dot"
+                    style="background:#eee9dc"
+                ></span>
+
+                White Gold
+
+            </button>
+
+
+            <button
+                class="theme-button"
+                data-theme="midnight"
+                onclick="setTheme('midnight')"
+            >
+
+                <span
+                    class="theme-dot"
+                    style="background:#142b38"
+                ></span>
+
+                Midnight
+
+            </button>
+
+
+            <button
+                class="theme-button"
+                data-theme="rose"
+                onclick="setTheme('rose')"
+            >
+
+                <span
+                    class="theme-dot"
+                    style="background:#b98286"
+                ></span>
+
+                Dusty Rose
+
+            </button>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PREVIEW
+    ===================================================== -->
+
+    <main class="preview">
+
+
+        <article class="invitation">
+
+
+            <div class="corner one"></div>
+            <div class="corner two"></div>
+            <div class="corner three"></div>
+            <div class="corner four"></div>
+
+
+            <div class="content">
+
+
+                <div class="monogram">
+                    M & T
+                </div>
+
+
+                <div class="top-label">
+                    A Celebration of Love
+                </div>
+
+
+                <div class="subtitle">
+                    You are cordially invited to
+                </div>
+
+
+                <div class="names">
+                    Mohammad
+                </div>
+
+
+                <div class="and">
+                    &
+                </div>
+
+
+                <div class="names">
+                    Tamara
+                </div>
+
+
+                <div class="divider">
+
+                    <span></span>
+
+                    <i></i>
+
+                    <span></span>
+
+                </div>
+
+
+                <p class="message">
+
+                    With joyful hearts and
+                    surrounded by our families,
+                    we invite you to share
+                    a beautiful evening with us
+                    as we celebrate
+                    the beginning of our journey together.
+
+                </p>
+
+
+                <!-- Event -->
+
+                <div class="event-box">
+
+
+                    <div class="event-grid">
+
+
+                        <div class="event-item">
+
+                            <div class="event-label">
+                                Date
+                            </div>
+
+                            <div class="event-value">
+                                Saturday<br>
+                                10 October 2026
+                            </div>
+
+                        </div>
+
+
+                        <div class="event-item">
+
+                            <div class="event-label">
+                                Time
+                            </div>
+
+                            <div class="event-value">
+                                5:30 PM<br>
+                                — 8:00 PM
+                            </div>
+
+                        </div>
+
+
+                        <div class="event-item">
+
+                            <div class="event-label">
+                                Dress
+                            </div>
+
+                            <div class="event-value">
+                                Elegant<br>
+                                Evening
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Location -->
+
+                <div class="location">
+
+
+                    <div class="location-label">
+                        The Celebration
+                    </div>
+
+
+                    <div class="location-name">
+                        LUJAIN HALLS
+                    </div>
+
+
+                    <div class="location-city">
+                        Amman, Jordan
+                    </div>
+
+
+                    <a
+                        class="map-button"
+                        href="https://www.google.com/maps/search/?api=1&query=LUJAIN+HALLS+Amman"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        View Location
+
+                    </a>
+
+
+                </div>
+
+
+                <!-- Countdown -->
+
+                <div class="countdown">
+
+
+                    <div class="countdown-title">
+                        Counting the Moments
+                    </div>
+
+
+                    <div class="count-grid">
+
+
+                        <div>
+
+                            <div
+                                class="number"
+                                id="days"
+                            >
+                                00
+                            </div>
+
+                            <div class="label">
+                                Days
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                class="number"
+                                id="hours"
+                            >
+                                00
+                            </div>
+
+                            <div class="label">
+                                Hours
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                class="number"
+                                id="minutes"
+                            >
+                                00
+                            </div>
+
+                            <div class="label">
+                                Minutes
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div
+                                class="number"
+                                id="seconds"
+                            >
+                                00
+                            </div>
+
+                            <div class="label">
+                                Seconds
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer">
+
+                    MOHAMMAD & TAMARA
+
+                    <span class="footer-heart">
+                        ♡
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           THEMES
+        ===================================================== */
+
+        const themes = {
+
+            jade: {
+
+                bg: "#f7f3ea",
+
+                card: "#fffdf8",
+
+                cardSoft: "#eef1ea",
+
+                primary: "#20372f",
+
+                secondary: "#49675b",
+
+                accent: "#b79a63",
+
+                accentLight: "#d9c79e",
+
+                text: "#26322d",
+
+                muted: "#74766e",
+
+                border:
+                    "rgba(183,154,99,0.35)",
+
+                shadow:
+                    "rgba(31,52,44,0.15)"
+            },
+
+
+            black: {
+
+                bg: "#eeeae0",
+
+                card: "#fffdf8",
+
+                cardSoft: "#f1eee6",
+
+                primary: "#171717",
+
+                secondary: "#4a4a4a",
+
+                accent: "#b9975b",
+
+                accentLight: "#dbc795",
+
+                text: "#202020",
+
+                muted: "#77736b",
+
+                border:
+                    "rgba(185,151,91,0.38)",
+
+                shadow:
+                    "rgba(0,0,0,0.18)"
+            },
+
+
+            mocha: {
+
+                bg: "#eee5db",
+
+                card: "#fffaf4",
+
+                cardSoft: "#f3e9de",
+
+                primary: "#60483d",
+
+                secondary: "#80675a",
+
+                accent: "#b28a58",
+
+                accentLight: "#d8bd91",
+
+                text: "#493b35",
+
+                muted: "#81736b",
+
+                border:
+                    "rgba(178,138,88,0.35)",
+
+                shadow:
+                    "rgba(91,65,51,0.16)"
+            },
+
+
+            burgundy: {
+
+                bg: "#f1e7e4",
+
+                card: "#fffaf7",
+
+                cardSoft: "#f2e5e2",
+
+                primary: "#641f2a",
+
+                secondary: "#87515a",
+
+                accent: "#b58a57",
+
+                accentLight: "#d8bd91",
+
+                text: "#44272d",
+
+                muted: "#806e71",
+
+                border:
+                    "rgba(181,138,87,0.38)",
+
+                shadow:
+                    "rgba(100,31,42,0.15)"
+            },
+
+
+            sage: {
+
+                bg: "#edf0e9",
+
+                card: "#fcfcf8",
+
+                cardSoft: "#e5ebe2",
+
+                primary: "#536b5d",
+
+                secondary: "#708477",
+
+                accent: "#a9936b",
+
+                accentLight: "#d2c29f",
+
+                text: "#3f5046",
+
+                muted: "#747c75",
+
+                border:
+                    "rgba(169,147,107,0.35)",
+
+                shadow:
+                    "rgba(69,91,78,0.14)"
+            },
+
+
+            white: {
+
+                bg: "#f5f2eb",
+
+                card: "#ffffff",
+
+                cardSoft: "#f7f4ed",
+
+                primary: "#38352f",
+
+                secondary: "#69645a",
+
+                accent: "#b99a61",
+
+                accentLight: "#d8c59c",
+
+                text: "#3c3933",
+
+                muted: "#817d74",
+
+                border:
+                    "rgba(185,154,97,0.4)",
+
+                shadow:
+                    "rgba(55,50,40,0.13)"
+            },
+
+
+            midnight: {
+
+                bg: "#e8ecec",
+
+                card: "#f9fbfa",
+
+                cardSoft: "#e5ecec",
+
+                primary: "#142f3b",
+
+                secondary: "#47636d",
+
+                accent: "#b99a5e",
+
+                accentLight: "#dbc798",
+
+                text: "#263b43",
+
+                muted: "#718087",
+
+                border:
+                    "rgba(185,154,94,0.38)",
+
+                shadow:
+                    "rgba(20,47,59,0.17)"
+            },
+
+
+            rose: {
+
+                bg: "#f4e8e8",
+
+                card: "#fffafa",
+
+                cardSoft: "#f4e4e5",
+
+                primary: "#8c525b",
+
+                secondary: "#a8737b",
+
+                accent: "#b59667",
+
+                accentLight: "#d9c59e",
+
+                text: "#5d4146",
+
+                muted: "#857176",
+
+                border:
+                    "rgba(181,150,103,0.38)",
+
+                shadow:
+                    "rgba(140,82,91,0.14)"
+            }
+
+        };
+
+
+
+        /* =====================================================
+           APPLY THEME
+        ===================================================== */
+
+        function setTheme(themeName) {
+
+            const theme =
+                themes[themeName];
+
+
+            if (!theme) {
+                return;
+            }
+
+
+            const root =
+                document.documentElement;
+
+
+            root.style.setProperty(
+                "--bg",
+                theme.bg
+            );
+
+
+            root.style.setProperty(
+                "--card",
+                theme.card
+            );
+
+
+            root.style.setProperty(
+                "--card-soft",
+                theme.cardSoft
+            );
+
+
+            root.style.setProperty(
+                "--primary",
+                theme.primary
+            );
+
+
+            root.style.setProperty(
+                "--secondary",
+                theme.secondary
+            );
+
+
+            root.style.setProperty(
+                "--accent",
+                theme.accent
+            );
+
+
+            root.style.setProperty(
+                "--accent-light",
+                theme.accentLight
+            );
+
+
+            root.style.setProperty(
+                "--text",
+                theme.text
+            );
+
+
+            root.style.setProperty(
+                "--muted",
+                theme.muted
+            );
+
+
+            root.style.setProperty(
+                "--border",
+                theme.border
+            );
+
+
+            root.style.setProperty(
+                "--shadow",
+                theme.shadow
+            );
+
+
+            /* Active button */
+
+            document
+                .querySelectorAll(".theme-button")
+                .forEach(button => {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+            const activeButton =
+                document.querySelector(
+                    `[data-theme="${themeName}"]`
+                );
+
+
+            if (activeButton) {
+
+                activeButton.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            /* Restart card animation */
+
+            const card =
+                document.querySelector(
+                    ".invitation"
+                );
+
+
+            card.style.animation = "none";
+
+
+            requestAnimationFrame(() => {
+
+                card.style.animation = "";
+
+            });
+
+        }
+
+
+
+        /* =====================================================
+           COUNTDOWN
+        ===================================================== */
+
+        const eventDate =
+            new Date(
+                "October 10, 2026 17:30:00"
+            ).getTime();
+
+
+        function updateCountdown() {
+
+            const now =
+                new Date().getTime();
+
+
+            const distance =
+                eventDate - now;
+
+
+            if (distance <= 0) {
+
+                document.getElementById(
+                    "days"
+                ).textContent = "00";
+
+
+                document.getElementById(
+                    "hours"
+                ).textContent = "00";
+
+
+                document.getElementById(
+                    "minutes"
+                ).textContent = "00";
+
+
+                document.getElementById(
+                    "seconds"
+                ).textContent = "00";
+
+
+                return;
+            }
+
+
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+                    (distance %
+                    (1000 * 60 * 60 * 24))
+                    /
+                    (1000 * 60 * 60)
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (distance %
+                    (1000 * 60 * 60))
+                    /
+                    (1000 * 60)
+                );
+
+
+            const seconds =
+                Math.floor(
+                    (distance %
+                    (1000 * 60))
+                    /
+                    1000
+                );
+
+
+            document.getElementById(
+                "days"
+            ).textContent =
+                String(days)
+                    .padStart(2, "0");
+
+
+            document.getElementById(
+                "hours"
+            ).textContent =
+                String(hours)
+                    .padStart(2, "0");
+
+
+            document.getElementById(
+                "minutes"
+            ).textContent =
+                String(minutes)
+                    .padStart(2, "0");
+
+
+            document.getElementById(
+                "seconds"
+            ).textContent =
+                String(seconds)
+                    .padStart(2, "0");
+
+        }
+
+
+        updateCountdown();
+
+
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+
+    </script>
+
+
+</body>
+</html>
