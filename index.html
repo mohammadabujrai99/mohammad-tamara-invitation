@@ -9,37 +9,50 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="theme-color"
+        content="#8c525b"
+    >
+
     <title>
-        Mohammad & Tamara | Theme Preview
+        Mohammad & Tamara | Engagement
     </title>
 
 
     <style>
 
         /* =====================================================
-           THEME SYSTEM
+           DUSTY ROSE THEME
         ===================================================== */
 
         :root {
 
-            --bg: #f7f3ea;
-            --card: #fffdf8;
-            --card-soft: #eef1ea;
+            --ivory: #f4e8e8;
 
-            --primary: #20372f;
-            --secondary: #49675b;
+            --paper: #fffafa;
 
-            --accent: #b79a63;
-            --accent-light: #d9c79e;
+            --paper-soft: #f4e4e5;
 
-            --text: #26322d;
-            --muted: #74766e;
+            --rose: #8c525b;
 
-            --border:
-                rgba(183,154,99,0.35);
+            --rose-light: #a8737b;
+
+            --rose-soft: #ead4d7;
+
+            --gold: #b59667;
+
+            --gold-light: #d9c59e;
+
+            --text: #5d4146;
+
+            --muted: #857176;
+
+            --line:
+                rgba(181,150,103,0.38);
 
             --shadow:
-                rgba(31,52,44,0.15);
+                0 30px 80px
+                rgba(140,82,91,0.14);
         }
 
 
@@ -48,13 +61,17 @@
         ===================================================== */
 
         * {
+
             box-sizing: border-box;
+
             margin: 0;
+
             padding: 0;
         }
 
 
         html {
+
             scroll-behavior: smooth;
         }
 
@@ -66,64 +83,51 @@
                 "Times New Roman",
                 serif;
 
-            background: var(--bg);
+            background:
+
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(255,255,255,0.95),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(234,212,215,0.55),
+                    transparent 30%
+                ),
+
+                var(--ivory);
 
             color: var(--text);
 
             min-height: 100vh;
 
-            transition:
-                background 0.6s ease,
-                color 0.6s ease;
-
             overflow-x: hidden;
+
+            transition:
+                background 0.6s ease;
+        }
+
+
+        button,
+        a {
+
+            font-family: inherit;
         }
 
 
         /* =====================================================
-           THEME SELECTOR
+           OPENING SCREEN
         ===================================================== */
 
-        .theme-bar {
+        .opening {
 
-            position: sticky;
+            position: fixed;
 
-            top: 0;
+            inset: 0;
 
-            z-index: 5000;
-
-            padding:
-                16px 20px;
-
-            background:
-                rgba(255,255,255,0.92);
-
-            backdrop-filter:
-                blur(15px);
-
-            border-bottom:
-                1px solid
-                rgba(0,0,0,0.08);
-
-            text-align: center;
-        }
-
-
-        .theme-title {
-
-            font-size: 10px;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
-            color: var(--muted);
-
-            margin-bottom: 13px;
-        }
-
-
-        .theme-buttons {
+            z-index: 9999;
 
             display: flex;
 
@@ -131,108 +135,286 @@
 
             align-items: center;
 
-            flex-wrap: wrap;
+            padding: 20px;
 
-            gap: 8px;
+            background:
 
-            max-width: 900px;
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(255,255,255,0.14),
+                    transparent 35%
+                ),
 
-            margin: auto;
+                linear-gradient(
+                    145deg,
+                    #5c343c,
+                    #8c525b 55%,
+                    #6d3e47
+                );
+
+            transition:
+                opacity 1.1s ease,
+                visibility 1.1s ease;
         }
 
 
-        .theme-button {
+        .opening.hide {
 
-            display: inline-flex;
+            opacity: 0;
 
-            align-items: center;
+            visibility: hidden;
 
-            gap: 7px;
+            pointer-events: none;
+        }
 
-            padding:
-                8px 12px;
+
+        .opening::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 18px;
 
             border:
                 1px solid
-                rgba(0,0,0,0.12);
+                rgba(217,197,158,0.42);
 
-            border-radius: 30px;
+            pointer-events: none;
+        }
 
-            background: white;
 
-            color: #333;
+        .opening-card {
 
-            font-family: inherit;
+            width:
+                min(100%, 570px);
+
+            min-height: 700px;
+
+            padding:
+                70px 35px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            position: relative;
+
+            text-align: center;
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           MONOGRAM
+        ===================================================== */
+
+        .monogram {
+
+            width: 90px;
+
+            height: 90px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border:
+                1px solid
+                var(--gold);
+
+            border-radius: 50%;
+
+            color:
+                var(--gold-light);
+
+            font-size: 22px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 45px;
+
+            position: relative;
+
+            animation:
+                monogramReveal 1.4s ease;
+        }
+
+
+        .monogram::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 7px;
+
+            border:
+                1px solid
+                rgba(217,197,158,0.38);
+
+            border-radius: 50%;
+        }
+
+
+        /* =====================================================
+           OPENING TEXT
+        ===================================================== */
+
+        .opening-small {
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            color:
+                rgba(255,255,255,0.72);
+
+            margin-bottom: 35px;
+
+            animation:
+                fadeUp 1s ease
+                0.15s both;
+        }
+
+
+        .opening-names {
+
+            font-size:
+                clamp(
+                    48px,
+                    11vw,
+                    76px
+                );
+
+            line-height: 1.05;
+
+            font-weight: normal;
+
+            letter-spacing: -1px;
+
+            color: #fffafa;
+
+            animation:
+                fadeUp 1s ease
+                0.3s both;
+        }
+
+
+        .opening-and {
+
+            margin:
+                14px 0;
+
+            font-size: 32px;
+
+            color:
+                var(--gold-light);
+
+            font-style: italic;
+
+            animation:
+                fadeUp 1s ease
+                0.45s both;
+        }
+
+
+        .opening-message {
+
+            max-width: 390px;
+
+            margin-top: 42px;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+            color:
+                rgba(255,255,255,0.75);
+
+            animation:
+                fadeUp 1s ease
+                0.6s both;
+        }
+
+
+        .opening-date {
+
+            margin-top: 30px;
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            color:
+                var(--gold-light);
+
+            animation:
+                fadeUp 1s ease
+                0.75s both;
+        }
+
+
+        /* =====================================================
+           OPEN BUTTON
+        ===================================================== */
+
+        .open-button {
+
+            margin-top: 48px;
+
+            padding:
+                16px 34px;
+
+            border:
+                1px solid
+                var(--gold);
+
+            background: transparent;
+
+            color: #fffafa;
+
+            letter-spacing: 3px;
 
             font-size: 11px;
 
             cursor: pointer;
 
             transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease,
-                border-color 0.25s ease;
+                background 0.35s ease,
+                color 0.35s ease,
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+
+            animation:
+                fadeUp 1s ease
+                0.9s both;
         }
 
 
-        .theme-button:hover {
+        .open-button:hover {
+
+            background:
+                var(--gold);
+
+            color:
+                #5c343c;
 
             transform:
-                translateY(-2px);
+                translateY(-3px);
 
             box-shadow:
-                0 6px 18px
-                rgba(0,0,0,0.10);
-        }
-
-
-        .theme-button.active {
-
-            border-color:
-                var(--accent);
-
-            box-shadow:
-                0 0 0 2px
-                rgba(183,154,99,0.18);
-        }
-
-
-        .theme-dot {
-
-            width: 15px;
-
-            height: 15px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid
-                rgba(0,0,0,0.15);
-
-            flex-shrink: 0;
-        }
-
-
-        /* =====================================================
-           PREVIEW AREA
-        ===================================================== */
-
-        .preview {
-
-            min-height:
-                calc(100vh - 100px);
-
-            padding:
-                60px 20px 80px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            transition:
-                background 0.6s ease;
+                0 12px 30px
+                rgba(181,150,103,0.25);
         }
 
 
@@ -242,50 +424,89 @@
 
         .invitation {
 
+            min-height: 100vh;
+
+            padding:
+                70px 20px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .card {
+
             width: 100%;
 
             max-width: 650px;
-
-            background:
-                var(--card);
-
-            border:
-                1px solid
-                var(--border);
-
-            box-shadow:
-                0 30px 80px
-                var(--shadow);
-
-            padding:
-                75px 45px;
 
             position: relative;
 
             overflow: hidden;
 
-            transition:
-                background 0.6s ease,
-                border-color 0.6s ease,
-                box-shadow 0.6s ease;
+            background:
 
-            animation:
-                cardEnter 0.8s ease;
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.98),
+                    rgba(255,249,250,0.98)
+                );
+
+            border:
+                1px solid
+                rgba(181,150,103,0.38);
+
+            box-shadow:
+                var(--shadow);
+
+            padding:
+                70px 45px;
+
+            opacity: 0;
+
+            transform:
+                translateY(45px)
+                scale(0.97);
         }
 
 
-        @keyframes cardEnter {
+        .invitation.show .card {
 
-            from {
+            animation:
+                cardReveal 1.2s
+                cubic-bezier(.2,.8,.2,1)
+                forwards;
+        }
+
+
+        @keyframes cardReveal {
+
+            0% {
 
                 opacity: 0;
 
                 transform:
-                    translateY(20px)
-                    scale(0.98);
+                    translateY(45px)
+                    scale(0.97);
             }
 
-            to {
+            65% {
+
+                opacity: 1;
+
+                transform:
+                    translateY(-6px)
+                    scale(1.005);
+            }
+
+            100% {
 
                 opacity: 1;
 
@@ -297,10 +518,10 @@
 
 
         /* =====================================================
-           DECORATIVE FRAME
+           CARD FRAME
         ===================================================== */
 
-        .invitation::before {
+        .card::before {
 
             content: "";
 
@@ -310,12 +531,9 @@
 
             border:
                 1px solid
-                var(--border);
+                rgba(181,150,103,0.28);
 
             pointer-events: none;
-
-            transition:
-                border-color 0.6s ease;
         }
 
 
@@ -323,25 +541,23 @@
 
             position: absolute;
 
-            width: 65px;
+            width: 70px;
 
-            height: 65px;
+            height: 70px;
 
             border-color:
-                var(--accent);
+                rgba(181,150,103,0.62);
 
             border-style: solid;
 
-            opacity: 0.6;
-
-            transition:
-                border-color 0.6s ease;
+            opacity: 0.7;
         }
 
 
         .corner.one {
 
             top: 25px;
+
             left: 25px;
 
             border-width:
@@ -352,6 +568,7 @@
         .corner.two {
 
             top: 25px;
+
             right: 25px;
 
             border-width:
@@ -362,6 +579,7 @@
         .corner.three {
 
             bottom: 25px;
+
             left: 25px;
 
             border-width:
@@ -372,6 +590,7 @@
         .corner.four {
 
             bottom: 25px;
+
             right: 25px;
 
             border-width:
@@ -393,40 +612,6 @@
         }
 
 
-        .monogram {
-
-            width: 82px;
-
-            height: 82px;
-
-            margin:
-                0 auto 35px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            border:
-                1px solid
-                var(--accent);
-
-            border-radius: 50%;
-
-            color:
-                var(--accent);
-
-            font-size: 19px;
-
-            letter-spacing: 2px;
-
-            transition:
-                color 0.6s ease,
-                border-color 0.6s ease;
-        }
-
-
         .top-label {
 
             font-size: 10px;
@@ -436,26 +621,42 @@
             text-transform: uppercase;
 
             color:
-                var(--secondary);
+                var(--rose-light);
 
-            margin-bottom: 25px;
+            margin-bottom: 28px;
 
-            transition:
-                color 0.6s ease;
+            opacity: 0;
         }
 
 
-        .subtitle {
+        .show .top-label {
+
+            animation:
+                fadeUp .7s ease
+                .25s forwards;
+        }
+
+
+        .invitation-title {
 
             font-size: 16px;
 
-            font-style: italic;
+            letter-spacing: 2px;
 
             color:
                 var(--muted);
 
-            transition:
-                color 0.6s ease;
+            font-style: italic;
+
+            opacity: 0;
+        }
+
+
+        .show .invitation-title {
+
+            animation:
+                fadeUp .7s ease
+                .4s forwards;
         }
 
 
@@ -475,14 +676,23 @@
             font-weight: normal;
 
             color:
-                var(--primary);
+                var(--rose);
 
-            transition:
-                color 0.6s ease;
+            letter-spacing: -1px;
+
+            opacity: 0;
         }
 
 
-        .and {
+        .show .names {
+
+            animation:
+                fadeUp .9s ease
+                .55s forwards;
+        }
+
+
+        .ampersand {
 
             margin:
                 15px 0;
@@ -492,10 +702,17 @@
             font-style: italic;
 
             color:
-                var(--accent);
+                var(--gold);
 
-            transition:
-                color 0.6s ease;
+            opacity: 0;
+        }
+
+
+        .show .ampersand {
+
+            animation:
+                heartReveal .8s ease
+                .8s forwards;
         }
 
 
@@ -503,7 +720,7 @@
            DIVIDER
         ===================================================== */
 
-        .divider {
+        .small-divider {
 
             display: flex;
 
@@ -515,38 +732,42 @@
 
             margin:
                 35px 0 30px;
+
+            opacity: 0;
         }
 
 
-        .divider span {
+        .show .small-divider {
 
-            width: 55px;
+            animation:
+                fadeUp .7s ease
+                1s forwards;
+        }
+
+
+        .small-divider span {
+
+            width: 50px;
 
             height: 1px;
 
             background:
-                var(--border);
-
-            transition:
-                background 0.6s ease;
+                var(--line);
         }
 
 
-        .divider i {
+        .small-divider i {
 
-            width: 7px;
+            width: 6px;
 
-            height: 7px;
+            height: 6px;
 
             border:
                 1px solid
-                var(--accent);
+                var(--gold);
 
             transform:
                 rotate(45deg);
-
-            transition:
-                border-color 0.6s ease;
         }
 
 
@@ -556,7 +777,7 @@
 
         .message {
 
-            max-width: 450px;
+            max-width: 440px;
 
             margin: auto;
 
@@ -567,8 +788,15 @@
             color:
                 var(--muted);
 
-            transition:
-                color 0.6s ease;
+            opacity: 0;
+        }
+
+
+        .show .message {
+
+            animation:
+                fadeUp .8s ease
+                1.1s forwards;
         }
 
 
@@ -584,14 +812,21 @@
                 30px 20px;
 
             background:
-                var(--card-soft);
+                rgba(244,228,229,0.62);
 
             border:
                 1px solid
-                rgba(0,0,0,0.07);
+                rgba(140,82,91,0.10);
 
-            transition:
-                background 0.6s ease;
+            opacity: 0;
+        }
+
+
+        .show .event-box {
+
+            animation:
+                fadeUp .8s ease
+                1.3s forwards;
         }
 
 
@@ -608,7 +843,8 @@
 
         .event-item {
 
-            padding: 10px;
+            padding:
+                10px 8px;
         }
 
 
@@ -616,7 +852,7 @@
 
             border-right:
                 1px solid
-                var(--border);
+                rgba(181,150,103,0.28);
         }
 
 
@@ -629,12 +865,9 @@
             text-transform: uppercase;
 
             color:
-                var(--accent);
+                var(--gold);
 
             margin-bottom: 10px;
-
-            transition:
-                color 0.6s ease;
         }
 
 
@@ -645,10 +878,7 @@
             line-height: 1.6;
 
             color:
-                var(--primary);
-
-            transition:
-                color 0.6s ease;
+                var(--rose);
         }
 
 
@@ -664,11 +894,21 @@
 
             border-top:
                 1px solid
-                var(--border);
+                rgba(181,150,103,0.25);
+
+            opacity: 0;
         }
 
 
-        .location-label {
+        .show .location {
+
+            animation:
+                fadeUp .8s ease
+                1.5s forwards;
+        }
+
+
+        .location-title {
 
             font-size: 9px;
 
@@ -677,7 +917,7 @@
             text-transform: uppercase;
 
             color:
-                var(--accent);
+                var(--gold);
 
             margin-bottom: 12px;
         }
@@ -688,39 +928,68 @@
             font-size: 24px;
 
             color:
-                var(--primary);
-
-            transition:
-                color 0.6s ease;
+                var(--rose);
         }
 
 
         .location-city {
 
-            margin-top: 7px;
-
             font-size: 14px;
 
             color:
                 var(--muted);
+
+            margin-top: 7px;
         }
 
 
         /* =====================================================
-           BUTTON
+           ACTIONS
         ===================================================== */
 
-        .map-button {
+        .actions {
 
-            display: inline-block;
+            margin-top: 28px;
 
-            margin-top: 25px;
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            opacity: 0;
+        }
+
+
+        .show .actions {
+
+            animation:
+                fadeUp .8s ease
+                1.65s forwards;
+        }
+
+
+        .action-button {
+
+            display: inline-flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-width: 150px;
 
             padding:
-                13px 25px;
+                13px 20px;
+
+            border:
+                1px solid
+                var(--rose);
 
             background:
-                var(--primary);
+                var(--rose);
 
             color: white;
 
@@ -732,16 +1001,40 @@
 
             text-transform: uppercase;
 
+            cursor: pointer;
+
             transition:
-                background 0.6s ease,
-                transform 0.25s ease;
+                0.3s ease;
         }
 
 
-        .map-button:hover {
+        .action-button.secondary {
+
+            background: transparent;
+
+            color:
+                var(--rose);
+
+            border-color:
+                rgba(140,82,91,0.28);
+        }
+
+
+        .action-button:hover {
 
             transform:
                 translateY(-2px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(140,82,91,0.14);
+        }
+
+
+        .action-button.secondary:hover {
+
+            background:
+                var(--rose-soft);
         }
 
 
@@ -749,15 +1042,25 @@
            COUNTDOWN
         ===================================================== */
 
-        .countdown {
+        .countdown-section {
 
-            margin-top: 50px;
+            margin-top: 55px;
 
-            padding-top: 30px;
+            padding-top: 35px;
 
             border-top:
                 1px solid
-                var(--border);
+                rgba(181,150,103,0.25);
+
+            opacity: 0;
+        }
+
+
+        .show .countdown-section {
+
+            animation:
+                fadeUp .8s ease
+                1.8s forwards;
         }
 
 
@@ -770,13 +1073,13 @@
             text-transform: uppercase;
 
             color:
-                var(--accent);
+                var(--gold);
 
             margin-bottom: 22px;
         }
 
 
-        .count-grid {
+        .countdown {
 
             display: grid;
 
@@ -789,19 +1092,18 @@
         }
 
 
-        .number {
+        .count-number {
 
-            font-size: 27px;
+            font-size: 28px;
 
             color:
-                var(--primary);
+                var(--rose);
 
-            transition:
-                color 0.6s ease;
+            line-height: 1;
         }
 
 
-        .label {
+        .count-label {
 
             margin-top: 8px;
 
@@ -824,12 +1126,22 @@
 
             margin-top: 50px;
 
+            color:
+                var(--rose);
+
             font-size: 11px;
 
             letter-spacing: 4px;
 
-            color:
-                var(--primary);
+            opacity: 0;
+        }
+
+
+        .show .footer {
+
+            animation:
+                fadeUp .8s ease
+                2s forwards;
         }
 
 
@@ -837,12 +1149,143 @@
 
             display: block;
 
-            margin-top: 13px;
+            margin-top: 15px;
 
             color:
-                var(--accent);
+                var(--gold);
 
             font-size: 20px;
+        }
+
+
+        /* =====================================================
+           PARTICLES
+        ===================================================== */
+
+        .particle {
+
+            position: fixed;
+
+            width: 4px;
+
+            height: 4px;
+
+            background:
+                var(--gold);
+
+            transform:
+                rotate(45deg);
+
+            pointer-events: none;
+
+            z-index: 10000;
+
+            animation:
+                particleFall
+                linear forwards;
+        }
+
+
+        @keyframes particleFall {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-20px)
+                    rotate(45deg)
+                    scale(0.6);
+            }
+
+            15% {
+
+                opacity: 0.8;
+            }
+
+            to {
+
+                opacity: 0;
+
+                transform:
+                    translateY(100vh)
+                    rotate(180deg)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(18px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes heartReveal {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.5);
+            }
+
+            70% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.15);
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        @keyframes monogramReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.7)
+                    rotate(-15deg);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    rotate(0);
+            }
         }
 
 
@@ -850,65 +1293,58 @@
            MOBILE
         ===================================================== */
 
-        @media (max-width: 650px) {
+        @media (max-width: 600px) {
 
-            .theme-bar {
+            .opening-card {
+
+                min-height: 650px;
 
                 padding:
-                    13px 10px;
+                    50px 20px;
             }
 
 
-            .theme-title {
-
-                font-size: 8px;
-
-                letter-spacing: 3px;
-            }
-
-
-            .theme-buttons {
-
-                gap: 6px;
-            }
-
-
-            .theme-button {
+            .opening-small {
 
                 font-size: 9px;
 
-                padding:
-                    7px 9px;
+                letter-spacing: 4px;
             }
 
 
-            .theme-dot {
+            .opening-message {
 
-                width: 12px;
-
-                height: 12px;
+                font-size: 14px;
             }
 
 
-            .preview {
+            .opening-date {
 
-                padding:
-                    30px 12px 50px;
+                font-size: 11px;
+
+                letter-spacing: 4px;
             }
 
 
             .invitation {
 
                 padding:
+                    25px 12px;
+            }
+
+
+            .card {
+
+                padding:
                     60px 22px;
 
                 box-shadow:
                     0 20px 50px
-                    var(--shadow);
+                    rgba(140,82,91,0.12);
             }
 
 
-            .invitation::before {
+            .card::before {
 
                 inset: 10px;
             }
@@ -935,7 +1371,7 @@
 
                 border-bottom:
                     1px solid
-                    var(--border);
+                    rgba(181,150,103,0.25);
 
                 padding-bottom: 18px;
 
@@ -948,6 +1384,46 @@
                 font-size: 48px;
             }
 
+
+            .event-value {
+
+                font-size: 14px;
+            }
+
+
+            .count-number {
+
+                font-size: 24px;
+            }
+
+
+            .action-button {
+
+                width: 100%;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                scroll-behavior:
+                    auto !important;
+            }
         }
 
     </style>
@@ -959,204 +1435,146 @@
 
 
     <!-- =====================================================
-         THEME SELECTOR
+         OPENING SCREEN
     ===================================================== -->
 
-    <header class="theme-bar">
+    <section
+        class="opening"
+        id="opening"
+    >
+
+        <div class="opening-card">
 
 
-        <div class="theme-title">
-            Choose Your Invitation Theme
-        </div>
+            <div class="monogram">
+
+                M&nbsp;&amp;&nbsp;T
+
+            </div>
 
 
-        <div class="theme-buttons">
+            <div class="opening-small">
+
+                Together with their families
+
+            </div>
 
 
-            <button
-                class="theme-button active"
-                data-theme="jade"
-                onclick="setTheme('jade')"
-            >
+            <div class="opening-names">
 
-                <span
-                    class="theme-dot"
-                    style="background:#20372f"
-                ></span>
+                Mohammad
 
-                Jade Luxury
-
-            </button>
+            </div>
 
 
-            <button
-                class="theme-button"
-                data-theme="black"
-                onclick="setTheme('black')"
-            >
+            <div class="opening-and">
 
-                <span
-                    class="theme-dot"
-                    style="background:#151515"
-                ></span>
+                &
 
-                Black & Gold
-
-            </button>
+            </div>
 
 
-            <button
-                class="theme-button"
-                data-theme="mocha"
-                onclick="setTheme('mocha')"
-            >
+            <div class="opening-names">
 
-                <span
-                    class="theme-dot"
-                    style="background:#6b5145"
-                ></span>
+                Tamara
 
-                Mocha Luxury
-
-            </button>
+            </div>
 
 
-            <button
-                class="theme-button"
-                data-theme="burgundy"
-                onclick="setTheme('burgundy')"
-            >
+            <p class="opening-message">
 
-                <span
-                    class="theme-dot"
-                    style="background:#641f2a"
-                ></span>
+                We would be delighted
+                to have you join us
+                as we celebrate
+                our engagement.
 
-                Burgundy
+            </p>
 
-            </button>
+
+            <div class="opening-date">
+
+                10 • 10 • 2026
+
+            </div>
 
 
             <button
-                class="theme-button"
-                data-theme="sage"
-                onclick="setTheme('sage')"
+                class="open-button"
+                onclick="openInvitation()"
             >
 
-                <span
-                    class="theme-dot"
-                    style="background:#819486"
-                ></span>
-
-                Sage Pearl
-
-            </button>
-
-
-            <button
-                class="theme-button"
-                data-theme="white"
-                onclick="setTheme('white')"
-            >
-
-                <span
-                    class="theme-dot"
-                    style="background:#eee9dc"
-                ></span>
-
-                White Gold
-
-            </button>
-
-
-            <button
-                class="theme-button"
-                data-theme="midnight"
-                onclick="setTheme('midnight')"
-            >
-
-                <span
-                    class="theme-dot"
-                    style="background:#142b38"
-                ></span>
-
-                Midnight
-
-            </button>
-
-
-            <button
-                class="theme-button"
-                data-theme="rose"
-                onclick="setTheme('rose')"
-            >
-
-                <span
-                    class="theme-dot"
-                    style="background:#b98286"
-                ></span>
-
-                Dusty Rose
+                OPEN INVITATION
 
             </button>
 
 
         </div>
 
-    </header>
+    </section>
 
 
 
     <!-- =====================================================
-         PREVIEW
+         INVITATION
     ===================================================== -->
 
-    <main class="preview">
+    <main
+        class="invitation"
+        id="invitation"
+    >
 
 
-        <article class="invitation">
+        <article class="card">
 
 
             <div class="corner one"></div>
+
             <div class="corner two"></div>
+
             <div class="corner three"></div>
+
             <div class="corner four"></div>
 
 
             <div class="content">
 
 
-                <div class="monogram">
-                    M & T
-                </div>
-
-
                 <div class="top-label">
+
                     A Celebration of Love
+
                 </div>
 
 
-                <div class="subtitle">
+                <div class="invitation-title">
+
                     You are cordially invited to
+
                 </div>
 
 
                 <div class="names">
+
                     Mohammad
+
                 </div>
 
 
-                <div class="and">
+                <div class="ampersand">
+
                     &
+
                 </div>
 
 
                 <div class="names">
+
                     Tamara
+
                 </div>
 
 
-                <div class="divider">
+                <div class="small-divider">
 
                     <span></span>
 
@@ -1179,9 +1597,9 @@
                 </p>
 
 
-                <!-- Event -->
+                <!-- EVENT -->
 
-                <div class="event-box">
+                <section class="event-box">
 
 
                     <div class="event-grid">
@@ -1190,12 +1608,16 @@
                         <div class="event-item">
 
                             <div class="event-label">
+
                                 Date
+
                             </div>
 
                             <div class="event-value">
+
                                 Saturday<br>
                                 10 October 2026
+
                             </div>
 
                         </div>
@@ -1204,12 +1626,16 @@
                         <div class="event-item">
 
                             <div class="event-label">
+
                                 Time
+
                             </div>
 
                             <div class="event-value">
+
                                 5:30 PM<br>
                                 — 8:00 PM
+
                             </div>
 
                         </div>
@@ -1218,12 +1644,16 @@
                         <div class="event-item">
 
                             <div class="event-label">
+
                                 Dress
+
                             </div>
 
                             <div class="event-value">
+
                                 Elegant<br>
                                 Evening
+
                             </div>
 
                         </div>
@@ -1231,69 +1661,98 @@
 
                     </div>
 
-
-                </div>
-
-
-                <!-- Location -->
-
-                <div class="location">
+                </section>
 
 
-                    <div class="location-label">
+
+                <!-- LOCATION -->
+
+                <section class="location">
+
+
+                    <div class="location-title">
+
                         The Celebration
+
                     </div>
 
 
                     <div class="location-name">
+
                         LUJAIN HALLS
+
                     </div>
 
 
                     <div class="location-city">
+
                         Amman, Jordan
+
                     </div>
 
 
-                    <a
-                        class="map-button"
-                        href="https://www.google.com/maps/search/?api=1&query=LUJAIN+HALLS+Amman"
-                        target="_blank"
-                        rel="noopener"
-                    >
-
-                        View Location
-
-                    </a>
+                    <div class="actions">
 
 
-                </div>
+                        <a
+                            class="action-button"
+                            href="https://www.google.com/maps/search/?api=1&query=LUJAIN+HALLS+Amman"
+                            target="_blank"
+                            rel="noopener"
+                        >
+
+                            View Location
+
+                        </a>
 
 
-                <!-- Countdown -->
+                        <button
+                            class="action-button secondary"
+                            onclick="addToCalendar()"
+                        >
 
-                <div class="countdown">
+                            Add to Calendar
+
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- COUNTDOWN -->
+
+                <section class="countdown-section">
 
 
                     <div class="countdown-title">
+
                         Counting the Moments
+
                     </div>
 
 
-                    <div class="count-grid">
+                    <div class="countdown">
 
 
                         <div>
 
                             <div
-                                class="number"
+                                class="count-number"
                                 id="days"
                             >
+
                                 00
+
                             </div>
 
-                            <div class="label">
+                            <div class="count-label">
+
                                 Days
+
                             </div>
 
                         </div>
@@ -1302,14 +1761,18 @@
                         <div>
 
                             <div
-                                class="number"
+                                class="count-number"
                                 id="hours"
                             >
+
                                 00
+
                             </div>
 
-                            <div class="label">
+                            <div class="count-label">
+
                                 Hours
+
                             </div>
 
                         </div>
@@ -1318,14 +1781,18 @@
                         <div>
 
                             <div
-                                class="number"
+                                class="count-number"
                                 id="minutes"
                             >
+
                                 00
+
                             </div>
 
-                            <div class="label">
+                            <div class="count-label">
+
                                 Minutes
+
                             </div>
 
                         </div>
@@ -1334,14 +1801,18 @@
                         <div>
 
                             <div
-                                class="number"
+                                class="count-number"
                                 id="seconds"
                             >
+
                                 00
+
                             </div>
 
-                            <div class="label">
+                            <div class="count-label">
+
                                 Seconds
+
                             </div>
 
                         </div>
@@ -1349,15 +1820,21 @@
 
                     </div>
 
-                </div>
 
+                </section>
+
+
+
+                <!-- FOOTER -->
 
                 <div class="footer">
 
                     MOHAMMAD & TAMARA
 
                     <span class="footer-heart">
+
                         ♡
+
                     </span>
 
                 </div>
@@ -1379,367 +1856,120 @@
 
 
         /* =====================================================
-           THEMES
+           OPEN INVITATION
         ===================================================== */
 
-        const themes = {
+        function openInvitation() {
 
-            jade: {
 
-                bg: "#f7f3ea",
+            const opening =
+                document.getElementById(
+                    "opening"
+                );
 
-                card: "#fffdf8",
 
-                cardSoft: "#eef1ea",
+            const invitation =
+                document.getElementById(
+                    "invitation"
+                );
 
-                primary: "#20372f",
 
-                secondary: "#49675b",
-
-                accent: "#b79a63",
-
-                accentLight: "#d9c79e",
-
-                text: "#26322d",
-
-                muted: "#74766e",
-
-                border:
-                    "rgba(183,154,99,0.35)",
-
-                shadow:
-                    "rgba(31,52,44,0.15)"
-            },
-
-
-            black: {
-
-                bg: "#eeeae0",
-
-                card: "#fffdf8",
-
-                cardSoft: "#f1eee6",
-
-                primary: "#171717",
-
-                secondary: "#4a4a4a",
-
-                accent: "#b9975b",
-
-                accentLight: "#dbc795",
-
-                text: "#202020",
-
-                muted: "#77736b",
-
-                border:
-                    "rgba(185,151,91,0.38)",
-
-                shadow:
-                    "rgba(0,0,0,0.18)"
-            },
-
-
-            mocha: {
-
-                bg: "#eee5db",
-
-                card: "#fffaf4",
-
-                cardSoft: "#f3e9de",
-
-                primary: "#60483d",
-
-                secondary: "#80675a",
-
-                accent: "#b28a58",
-
-                accentLight: "#d8bd91",
-
-                text: "#493b35",
-
-                muted: "#81736b",
-
-                border:
-                    "rgba(178,138,88,0.35)",
-
-                shadow:
-                    "rgba(91,65,51,0.16)"
-            },
-
-
-            burgundy: {
-
-                bg: "#f1e7e4",
-
-                card: "#fffaf7",
-
-                cardSoft: "#f2e5e2",
-
-                primary: "#641f2a",
-
-                secondary: "#87515a",
-
-                accent: "#b58a57",
-
-                accentLight: "#d8bd91",
-
-                text: "#44272d",
-
-                muted: "#806e71",
-
-                border:
-                    "rgba(181,138,87,0.38)",
-
-                shadow:
-                    "rgba(100,31,42,0.15)"
-            },
-
-
-            sage: {
-
-                bg: "#edf0e9",
-
-                card: "#fcfcf8",
-
-                cardSoft: "#e5ebe2",
-
-                primary: "#536b5d",
-
-                secondary: "#708477",
-
-                accent: "#a9936b",
-
-                accentLight: "#d2c29f",
-
-                text: "#3f5046",
-
-                muted: "#747c75",
-
-                border:
-                    "rgba(169,147,107,0.35)",
-
-                shadow:
-                    "rgba(69,91,78,0.14)"
-            },
-
-
-            white: {
-
-                bg: "#f5f2eb",
-
-                card: "#ffffff",
-
-                cardSoft: "#f7f4ed",
-
-                primary: "#38352f",
-
-                secondary: "#69645a",
-
-                accent: "#b99a61",
-
-                accentLight: "#d8c59c",
-
-                text: "#3c3933",
-
-                muted: "#817d74",
-
-                border:
-                    "rgba(185,154,97,0.4)",
-
-                shadow:
-                    "rgba(55,50,40,0.13)"
-            },
-
-
-            midnight: {
-
-                bg: "#e8ecec",
-
-                card: "#f9fbfa",
-
-                cardSoft: "#e5ecec",
-
-                primary: "#142f3b",
-
-                secondary: "#47636d",
-
-                accent: "#b99a5e",
-
-                accentLight: "#dbc798",
-
-                text: "#263b43",
-
-                muted: "#718087",
-
-                border:
-                    "rgba(185,154,94,0.38)",
-
-                shadow:
-                    "rgba(20,47,59,0.17)"
-            },
-
-
-            rose: {
-
-                bg: "#f4e8e8",
-
-                card: "#fffafa",
-
-                cardSoft: "#f4e4e5",
-
-                primary: "#8c525b",
-
-                secondary: "#a8737b",
-
-                accent: "#b59667",
-
-                accentLight: "#d9c59e",
-
-                text: "#5d4146",
-
-                muted: "#857176",
-
-                border:
-                    "rgba(181,150,103,0.38)",
-
-                shadow:
-                    "rgba(140,82,91,0.14)"
-            }
-
-        };
-
-
-
-        /* =====================================================
-           APPLY THEME
-        ===================================================== */
-
-        function setTheme(themeName) {
-
-            const theme =
-                themes[themeName];
-
-
-            if (!theme) {
-                return;
-            }
-
-
-            const root =
-                document.documentElement;
-
-
-            root.style.setProperty(
-                "--bg",
-                theme.bg
+            opening.classList.add(
+                "hide"
             );
 
 
-            root.style.setProperty(
-                "--card",
-                theme.card
-            );
+            setTimeout(() => {
 
 
-            root.style.setProperty(
-                "--card-soft",
-                theme.cardSoft
-            );
+                invitation.classList.add(
+                    "show"
+                );
 
 
-            root.style.setProperty(
-                "--primary",
-                theme.primary
-            );
+                createParticles();
 
 
-            root.style.setProperty(
-                "--secondary",
-                theme.secondary
-            );
+                window.scrollTo({
 
+                    top: 0,
 
-            root.style.setProperty(
-                "--accent",
-                theme.accent
-            );
-
-
-            root.style.setProperty(
-                "--accent-light",
-                theme.accentLight
-            );
-
-
-            root.style.setProperty(
-                "--text",
-                theme.text
-            );
-
-
-            root.style.setProperty(
-                "--muted",
-                theme.muted
-            );
-
-
-            root.style.setProperty(
-                "--border",
-                theme.border
-            );
-
-
-            root.style.setProperty(
-                "--shadow",
-                theme.shadow
-            );
-
-
-            /* Active button */
-
-            document
-                .querySelectorAll(".theme-button")
-                .forEach(button => {
-
-                    button.classList.remove(
-                        "active"
-                    );
+                    behavior: "smooth"
 
                 });
 
 
-            const activeButton =
-                document.querySelector(
-                    `[data-theme="${themeName}"]`
+            }, 450);
+
+        }
+
+
+
+        /* =====================================================
+           GOLD PARTICLES
+        ===================================================== */
+
+        function createParticles() {
+
+
+            for (
+                let i = 0;
+                i < 24;
+                i++
+            ) {
+
+
+                const particle =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                particle.className =
+                    "particle";
+
+
+                particle.style.left =
+                    Math.random() *
+                    100 +
+                    "vw";
+
+
+                particle.style.top =
+                    (
+                        -10 -
+                        Math.random() * 20
+                    ) +
+                    "px";
+
+
+                particle.style.animationDuration =
+                    (
+                        3 +
+                        Math.random() * 4
+                    ) +
+                    "s";
+
+
+                particle.style.animationDelay =
+                    (
+                        Math.random() * 1.5
+                    ) +
+                    "s";
+
+
+                document.body.appendChild(
+                    particle
                 );
 
 
-            if (activeButton) {
+                setTimeout(() => {
 
-                activeButton.classList.add(
-                    "active"
-                );
+                    particle.remove();
+
+                }, 8000);
 
             }
-
-
-            /* Restart card animation */
-
-            const card =
-                document.querySelector(
-                    ".invitation"
-                );
-
-
-            card.style.animation = "none";
-
-
-            requestAnimationFrame(() => {
-
-                card.style.animation = "";
-
-            });
 
         }
 
@@ -1757,6 +1987,7 @@
 
         function updateCountdown() {
 
+
             const now =
                 new Date().getTime();
 
@@ -1767,27 +1998,33 @@
 
             if (distance <= 0) {
 
+
                 document.getElementById(
                     "days"
-                ).textContent = "00";
+                ).textContent =
+                    "00";
 
 
                 document.getElementById(
                     "hours"
-                ).textContent = "00";
+                ).textContent =
+                    "00";
 
 
                 document.getElementById(
                     "minutes"
-                ).textContent = "00";
+                ).textContent =
+                    "00";
 
 
                 document.getElementById(
                     "seconds"
-                ).textContent = "00";
+                ).textContent =
+                    "00";
 
 
                 return;
+
             }
 
 
@@ -1800,8 +2037,10 @@
 
             const hours =
                 Math.floor(
-                    (distance %
-                    (1000 * 60 * 60 * 24))
+                    (
+                        distance %
+                        (1000 * 60 * 60 * 24)
+                    )
                     /
                     (1000 * 60 * 60)
                 );
@@ -1809,8 +2048,10 @@
 
             const minutes =
                 Math.floor(
-                    (distance %
-                    (1000 * 60 * 60))
+                    (
+                        distance %
+                        (1000 * 60 * 60)
+                    )
                     /
                     (1000 * 60)
                 );
@@ -1818,8 +2059,10 @@
 
             const seconds =
                 Math.floor(
-                    (distance %
-                    (1000 * 60))
+                    (
+                        distance %
+                        (1000 * 60)
+                    )
                     /
                     1000
                 );
@@ -1863,6 +2106,99 @@
             1000
         );
 
+
+
+        /* =====================================================
+           ADD TO CALENDAR
+        ===================================================== */
+
+        function addToCalendar() {
+
+
+            const title =
+                "Mohammad & Tamara — Engagement";
+
+
+            const start =
+                "20261010T173000";
+
+
+            const end =
+                "20261010T200000";
+
+
+            const location =
+                "LUJAIN HALLS, Amman, Jordan";
+
+
+            const description =
+                "Engagement celebration of Mohammad & Tamara.";
+
+
+            const ics =
+
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mohammad & Tamara//Engagement//EN
+BEGIN:VEVENT
+UID:mohammad-tamara-engagement-2026
+DTSTAMP:20260101T120000Z
+DTSTART:${start}
+DTEND:${end}
+SUMMARY:${title}
+LOCATION:${location}
+DESCRIPTION:${description}
+END:VEVENT
+END:VCALENDAR`;
+
+
+            const blob =
+                new Blob(
+                    [ics],
+                    {
+                        type:
+                            "text/calendar;charset=utf-8"
+                    }
+                );
+
+
+            const url =
+                URL.createObjectURL(
+                    blob
+                );
+
+
+            const link =
+                document.createElement(
+                    "a"
+                );
+
+
+            link.href = url;
+
+
+            link.download =
+                "Mohammad-Tamara-Engagement.ics";
+
+
+            document.body.appendChild(
+                link
+            );
+
+
+            link.click();
+
+
+            document.body.removeChild(
+                link
+            );
+
+
+            URL.revokeObjectURL(
+                url
+            );
+
+        }
 
     </script>
 
