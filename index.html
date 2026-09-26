@@ -7,400 +7,418 @@
 
     <title>Mohammad & Tamara</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            /* حركة بطاقة الدعوة عند الفتح */
-.invitation .card {
-    opacity: 0;
-    transform: translateY(40px) scale(0.96);
-}
+    ```html
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-.invitation.show-card .card {
-    animation: cardReveal 1.2s ease-out forwards;
-}
+    html {
+        scroll-behavior: smooth;
+    }
 
-@keyframes cardReveal {
-    0% {
+    body {
+        font-family: Georgia, "Times New Roman", serif;
+        background: #f6e8e5;
+        color: #735b57;
+        text-align: center;
+    }
+
+    /* =========================
+       OPENING SCREEN
+    ========================= */
+
+    .opening {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background:
+            radial-gradient(circle at top left, #fff7f5, transparent 45%),
+            radial-gradient(circle at bottom right, #efd8d4, transparent 45%),
+            #f8ebe8;
+
+        transition:
+            opacity 1s ease,
+            visibility 1s ease;
+    }
+
+    .opening.hide {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .opening-card {
+        width: calc(100% - 40px);
+        max-width: 520px;
+        min-height: 680px;
+
+        padding: 70px 30px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background: rgba(255, 250, 249, 0.82);
+
+        border: 1px solid #e4c9c4;
+        border-radius: 32px;
+
+        box-shadow:
+            0 20px 70px rgba(120, 85, 80, 0.13);
+
+        animation: openingCard 1.2s ease;
+    }
+
+    .opening-small {
+        font-size: 12px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #9a7771;
+        margin-bottom: 45px;
+    }
+
+    .opening-names {
+        font-size: clamp(42px, 10vw, 62px);
+        line-height: 1.15;
+        color: #6e514d;
+    }
+
+    .opening-and {
+        font-size: 34px;
+        color: #c99992;
+        margin: 15px 0;
+    }
+
+    .opening-message {
+        margin-top: 45px;
+        max-width: 350px;
+
+        font-size: 17px;
+        line-height: 1.8;
+        font-style: italic;
+        color: #806560;
+    }
+
+    .opening-date {
+        margin-top: 30px;
+
+        font-size: 14px;
+        letter-spacing: 5px;
+        color: #9a7771;
+    }
+
+    .open-button {
+        margin-top: 50px;
+
+        padding: 16px 38px;
+
+        border: 1px solid #cfa6a0;
+        border-radius: 50px;
+
+        background: #cfa6a0;
+        color: white;
+
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 13px;
+        letter-spacing: 3px;
+
+        cursor: pointer;
+
+        transition:
+            transform 0.3s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .open-button:hover {
+        background: #b98d87;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(120, 85, 80, 0.18);
+    }
+
+    .open-button:active {
+        transform: translateY(0);
+    }
+
+    @keyframes openingCard {
+        from {
+            opacity: 0;
+            transform: translateY(25px) scale(0.97);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    /* =========================
+       MAIN INVITATION
+    ========================= */
+
+    .invitation {
+        min-height: 100vh;
+        padding: 55px 25px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 520px;
+        min-height: 850px;
+
+        padding: 55px 30px;
+
+        background: rgba(255, 250, 249, 0.92);
+
+        border: 1px solid #e4c9c4;
+        border-radius: 30px;
+
+        box-shadow: 0 15px 50px rgba(120, 85, 80, 0.12);
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* حركة بطاقة الدعوة عند الفتح */
+
+    .invitation .card {
         opacity: 0;
         transform: translateY(40px) scale(0.96);
     }
 
-    60% {
-        opacity: 1;
-        transform: translateY(-5px) scale(1.01);
+    .invitation.show-card .card {
+        animation: cardReveal 1.2s ease-out forwards;
     }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Georgia, "Times New Roman", serif;
-            background: #f6e8e5;
-            color: #735b57;
-            text-align: center;
-        }
-
-        /* =========================
-           OPENING SCREEN
-        ========================= */
-
-        .opening {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            background:
-                radial-gradient(circle at top left, #fff7f5, transparent 45%),
-                radial-gradient(circle at bottom right, #efd8d4, transparent 45%),
-                #f8ebe8;
-
-            transition:
-                opacity 1s ease,
-                visibility 1s ease;
-        }
-
-        .opening.hide {
+    @keyframes cardReveal {
+        0% {
             opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+            transform: translateY(40px) scale(0.96);
         }
 
-        .opening-card {
-            width: calc(100% - 40px);
-            max-width: 520px;
-            min-height: 680px;
-
-            padding: 70px 30px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            background: rgba(255, 250, 249, 0.82);
-
-            border: 1px solid #e4c9c4;
-            border-radius: 32px;
-
-            box-shadow:
-                0 20px 70px rgba(120, 85, 80, 0.13);
-
-            animation: openingCard 1.2s ease;
+        60% {
+            opacity: 1;
+            transform: translateY(-5px) scale(1.01);
         }
 
-        .opening-small {
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #9a7771;
-            margin-bottom: 45px;
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    /* ظهور محتوى البطاقة بالتتابع */
+
+    .invitation .welcome,
+    .invitation .engagement,
+    .invitation .names,
+    .invitation .and,
+    .invitation .heart,
+    .invitation .message,
+    .invitation .details,
+    .invitation .footer {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    .invitation.show-card .welcome {
+        animation: contentReveal 0.7s ease forwards;
+        animation-delay: 0.2s;
+    }
+
+    .invitation.show-card .engagement {
+        animation: contentReveal 0.7s ease forwards;
+        animation-delay: 0.4s;
+    }
+
+    .invitation.show-card .names {
+        animation: contentReveal 0.7s ease forwards;
+        animation-delay: 0.6s;
+    }
+
+    .invitation.show-card .and {
+        animation: contentReveal 0.7s ease forwards;
+        animation-delay: 0.8s;
+    }
+
+    .invitation.show-card .heart {
+        animation: heartReveal 0.8s ease forwards;
+        animation-delay: 1s;
+    }
+
+    .invitation.show-card .message {
+        animation: contentReveal 0.7s ease forwards;
+        animation-delay: 1.2s;
+    }
+
+    .invitation.show-card .details {
+        animation: contentReveal 0.7s ease forwards;
+        animation-delay: 1.4s;
+    }
+
+    .invitation.show-card .footer {
+        animation: contentReveal 0.7s ease forwards;
+        animation-delay: 1.6s;
+    }
+
+    @keyframes contentReveal {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
         }
 
-        .opening-names {
-            font-size: clamp(42px, 10vw, 62px);
-            line-height: 1.15;
-            color: #6e514d;
-        }
-
-        .opening-and {
-            font-size: 34px;
-            color: #c99992;
-            margin: 15px 0;
-        }
-
-        .opening-message {
-            margin-top: 45px;
-            max-width: 350px;
-
-            font-size: 17px;
-            line-height: 1.8;
-            font-style: italic;
-            color: #806560;
-        }
-
-        .opening-date {
-            margin-top: 30px;
-
-            font-size: 14px;
-            letter-spacing: 5px;
-            color: #9a7771;
-        }
-
-        .open-button {
-            margin-top: 50px;
-
-            padding: 16px 38px;
-
-            border: 1px solid #cfa6a0;
-            border-radius: 50px;
-
-            background: #cfa6a0;
-            color: white;
-
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 13px;
-            letter-spacing: 3px;
-
-            cursor: pointer;
-
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-        .open-button:hover {
-            background: #b98d87;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(120, 85, 80, 0.18);
-        }
-
-        .open-button:active {
+        to {
+            opacity: 1;
             transform: translateY(0);
         }
+    }
 
-        @keyframes openingCard {
-            from {
-                opacity: 0;
-                transform: translateY(25px) scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+    @keyframes heartReveal {
+        0% {
+            opacity: 0;
+            transform: scale(0.5);
         }
 
-        /* =========================
-           MAIN INVITATION
-        ========================= */
-
-        .invitation {
-            min-height: 100vh;
-            padding: 55px 25px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        70% {
+            opacity: 1;
+            transform: scale(1.15);
         }
 
-        .card {
-            width: 100%;
-            max-width: 520px;
-            min-height: 850px;
-
-            padding: 55px 30px;
-
-            background: rgba(255, 250, 249, 0.92);
-
-            border: 1px solid #e4c9c4;
-            border-radius: 30px;
-
-            box-shadow: 0 15px 50px rgba(120, 85, 80, 0.12);
-
-            position: relative;
-            overflow: hidden;
-
-            animation: invitationAppear 1.2s ease;
+        100% {
+            opacity: 1;
+            transform: scale(1);
         }
+    }
 
-        @keyframes invitationAppear {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+    /* Flowers */
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .flower {
+        position: absolute;
+        font-size: 65px;
+        opacity: 0.55;
+    }
 
-        /* Flowers */
+    .flower.top {
+        top: 10px;
+        left: 5px;
+    }
 
-        .flower {
-            position: absolute;
-            font-size: 65px;
-            opacity: 0.55;
-        }
+    .flower.bottom {
+        bottom: 5px;
+        right: 5px;
+    }
 
-        .flower.top {
-            top: 10px;
-            left: 5px;
-        }
+    /* Small heading */
 
-        .flower.bottom {
-            bottom: 5px;
-            right: 5px;
-        }
+    .welcome {
+        font-size: 12px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 35px;
+        color: #9a7771;
+    }
 
-        /* Small heading */
+    /* Main title */
 
-        .welcome {
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 35px;
-            color: #9a7771;
-        }
+    .engagement {
+        font-size: 22px;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
 
-        /* Main title */
+    .names {
+        font-size: 48px;
+        line-height: 1.15;
+        color: #6e514d;
+    }
 
-        .engagement {
-            font-size: 22px;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
+    .and {
+        font-size: 32px;
+        color: #c99992;
+        margin: 12px 0;
+    }
 
-        .names {
-            font-size: 48px;
-            line-height: 1.15;
-            color: #6e514d;
-        }
+    .heart {
+        color: #c99992;
+        font-size: 25px;
+        margin: 22px 0;
+    }
 
-        .and {
-            font-size: 32px;
-            color: #c99992;
-            margin: 12px 0;
-        }
+    .message {
+        font-size: 17px;
+        line-height: 1.8;
+        max-width: 380px;
+        margin: auto;
+    }
 
-        .heart {
-            color: #c99992;
-            font-size: 25px;
-            margin: 22px 0;
-        }
+    /* Details */
 
-        .message {
-            font-size: 17px;
-            line-height: 1.8;
-            max-width: 380px;
-            margin: auto;
-        }
+    .details {
+        margin-top: 45px;
+        padding: 25px;
 
-        /* Details */
+        border: 1px solid #e3c7c2;
+        border-radius: 20px;
 
-        .details {
-            margin-top: 45px;
-            padding: 25px;
+        background: #fdf6f4;
+    }
 
-            border: 1px solid #e3c7c2;
-            border-radius: 20px;
+    .detail-title {
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #a17c76;
+        margin-top: 15px;
+    }
 
-            background: #fdf6f4;
-        }
+    .detail {
+        font-size: 21px;
+        margin-top: 8px;
+        color: #6f5550;
+    }
 
-        .detail-title {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #a17c76;
-            margin-top: 15px;
-        }
+    .location {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #ead6d2;
+    }
 
-        .detail {
-            font-size: 21px;
-            margin-top: 8px;
-            color: #6f5550;
-        }
+    /* Button */
 
-        .location {
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid #ead6d2;
-        }
+    .button {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 14px 30px;
 
-        /* Button */
+        background: #cfa6a0;
+        color: white;
 
-        .button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 30px;
+        text-decoration: none;
+        border-radius: 40px;
 
-            background: #cfa6a0;
-            color: white;
+        font-size: 15px;
+        letter-spacing: 1px;
 
-            text-decoration: none;
-            border-radius: 40px;
+        transition: 0.3s;
+    }
 
-            font-size: 15px;
-            letter-spacing: 1px;
+    .button:hover {
+        background: #b98d
+```
 
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background: #b98d87;
-            transform: translateY(-2px);
-        }
-
-        .footer {
-            margin-top: 40px;
-            font-size: 13px;
-            letter-spacing: 3px;
-            color: #9a7771;
-        }
-
-        /* Mobile */
-
-        @media (max-width: 600px) {
-
-            .opening-card {
-                min-height: 650px;
-                padding: 55px 22px;
-            }
-
-            .opening-small {
-                margin-bottom: 35px;
-                font-size: 10px;
-            }
-
-            .opening-message {
-                font-size: 15px;
-            }
-
-            .opening-date {
-                font-size: 12px;
-                letter-spacing: 4px;
-            }
-
-            .invitation {
-                padding: 20px 12px;
-            }
-
-            .card {
-                min-height: 800px;
-                padding: 45px 22px;
-                border-radius: 25px;
-            }
-
-            .names {
-                font-size: 40px;
-            }
-
-            .message {
-                font-size: 15px;
-            }
-
-            .detail {
-                font-size: 18px;
-            }
-        }
-    </style>
 </head>
 
 <body>
