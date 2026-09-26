@@ -1,13 +1,16 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mohammad & Tamara</title>
+    <title>Mohammad & Tamara | Engagement Invitation</title>
 
     <style>
+        /* =========================
+           GLOBAL
+        ========================== */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -20,14 +23,18 @@
 
         body {
             font-family: Georgia, "Times New Roman", serif;
-            background: #f6e8e5;
+            background:
+                radial-gradient(circle at top left, #fff8f6, transparent 35%),
+                radial-gradient(circle at bottom right, #efd8d4, transparent 35%),
+                #f6e8e5;
             color: #735b57;
             text-align: center;
+            min-height: 100vh;
         }
 
         /* =========================
            OPENING SCREEN
-        ========================= */
+        ========================== */
 
         .opening {
             position: fixed;
@@ -39,8 +46,8 @@
             align-items: center;
 
             background:
-                radial-gradient(circle at top left, #fff7f5, transparent 45%),
-                radial-gradient(circle at bottom right, #efd8d4, transparent 45%),
+                radial-gradient(circle at 20% 20%, #fffaf8, transparent 35%),
+                radial-gradient(circle at 80% 80%, #ead1cc, transparent 40%),
                 #f8ebe8;
 
             transition:
@@ -66,13 +73,13 @@
             justify-content: center;
             align-items: center;
 
-            background: rgba(255, 250, 249, 0.82);
+            background: rgba(255, 250, 249, 0.9);
 
             border: 1px solid #e4c9c4;
             border-radius: 32px;
 
             box-shadow:
-                0 20px 70px rgba(120, 85, 80, 0.13);
+                0 25px 80px rgba(120, 85, 80, 0.16);
 
             animation: openingCard 1.2s ease;
         }
@@ -82,6 +89,7 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #9a7771;
+
             margin-bottom: 45px;
         }
 
@@ -98,12 +106,14 @@
         }
 
         .opening-message {
-            margin-top: 45px;
             max-width: 350px;
+
+            margin-top: 45px;
 
             font-size: 17px;
             line-height: 1.8;
             font-style: italic;
+
             color: #806560;
         }
 
@@ -112,8 +122,13 @@
 
             font-size: 14px;
             letter-spacing: 5px;
+
             color: #9a7771;
         }
+
+        /* =========================
+           OPEN BUTTON
+        ========================== */
 
         .open-button {
             margin-top: 50px;
@@ -127,6 +142,7 @@
             color: white;
 
             font-family: Georgia, "Times New Roman", serif;
+
             font-size: 13px;
             letter-spacing: 3px;
 
@@ -140,38 +156,55 @@
 
         .open-button:hover {
             background: #b98d87;
+
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(120, 85, 80, 0.18);
+
+            box-shadow:
+                0 10px 25px rgba(120, 85, 80, 0.18);
         }
 
         .open-button:active {
             transform: translateY(0);
         }
 
+        /* =========================
+           OPENING ANIMATION
+        ========================== */
+
         @keyframes openingCard {
+
             from {
                 opacity: 0;
-                transform: translateY(25px) scale(0.97);
+                transform:
+                    translateY(25px)
+                    scale(0.97);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform:
+                    translateY(0)
+                    scale(1);
             }
         }
 
         /* =========================
-           MAIN INVITATION
-        ========================= */
+           INVITATION
+        ========================== */
 
         .invitation {
             min-height: 100vh;
+
             padding: 55px 25px;
 
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
+        /* =========================
+           MAIN CARD
+        ========================== */
 
         .card {
             width: 100%;
@@ -180,101 +213,188 @@
 
             padding: 55px 30px;
 
-            background: rgba(255, 250, 249, 0.92);
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.96),
+                    rgba(253,246,244,0.94)
+                );
 
             border: 1px solid #e4c9c4;
             border-radius: 30px;
 
             box-shadow:
-                0 15px 50px rgba(120, 85, 80, 0.12);
+                0 20px 70px rgba(120, 85, 80, 0.15);
 
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* حركة بطاقة الدعوة */
-
-        .invitation .card {
             opacity: 0;
-            transform: translateY(40px) scale(0.96);
+            transform:
+                translateY(40px)
+                scale(0.96);
         }
+
+        /* =========================
+           CARD REVEAL
+        ========================== */
 
         .invitation.show-card .card {
-            animation: cardReveal 1.2s ease-out forwards;
+            animation:
+                cardReveal 1.2s ease-out forwards;
         }
 
         @keyframes cardReveal {
+
             0% {
                 opacity: 0;
-                transform: translateY(40px) scale(0.96);
+
+                transform:
+                    translateY(40px)
+                    scale(0.96);
             }
 
             60% {
                 opacity: 1;
-                transform: translateY(-5px) scale(1.01);
+
+                transform:
+                    translateY(-5px)
+                    scale(1.01);
             }
 
             100% {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+
+                transform:
+                    translateY(0)
+                    scale(1);
             }
         }
 
-        /* ظهور المحتوى بالتتابع */
+        /* =========================
+           FLOWERS
+        ========================== */
 
-        .invitation .welcome,
-        .invitation .engagement,
-        .invitation .names,
-        .invitation .and,
-        .invitation .heart,
-        .invitation .message,
-        .invitation .details,
-        .invitation .footer {
+        .flower {
+            position: absolute;
+
+            font-size: 65px;
+
+            opacity: 0.55;
+
+            animation:
+                flowerFloat 4s ease-in-out infinite;
+        }
+
+        .flower.top {
+            top: 10px;
+            left: 5px;
+
+            animation-delay: 0s;
+        }
+
+        .flower.bottom {
+            bottom: 5px;
+            right: 5px;
+
+            animation-delay: 1.5s;
+        }
+
+        @keyframes flowerFloat {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-10px)
+                    rotate(5deg);
+            }
+
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+        }
+
+        /* =========================
+           CONTENT REVEAL
+        ========================== */
+
+        .welcome,
+        .engagement,
+        .names,
+        .and,
+        .heart,
+        .message,
+        .details,
+        .footer {
             opacity: 0;
             transform: translateY(15px);
         }
 
-        .invitation.show-card .welcome {
-            animation: contentReveal 0.7s ease forwards;
+        .show-card .welcome {
+            animation:
+                contentReveal 0.7s ease forwards;
+
             animation-delay: 0.2s;
         }
 
-        .invitation.show-card .engagement {
-            animation: contentReveal 0.7s ease forwards;
+        .show-card .engagement {
+            animation:
+                contentReveal 0.7s ease forwards;
+
             animation-delay: 0.4s;
         }
 
-        .invitation.show-card .names {
-            animation: contentReveal 0.7s ease forwards;
+        .show-card .names {
+            animation:
+                contentReveal 0.7s ease forwards;
+
             animation-delay: 0.6s;
         }
 
-        .invitation.show-card .and {
-            animation: contentReveal 0.7s ease forwards;
+        .show-card .and {
+            animation:
+                contentReveal 0.7s ease forwards;
+
             animation-delay: 0.8s;
         }
 
-        .invitation.show-card .heart {
-            animation: heartReveal 0.8s ease forwards;
+        .show-card .heart {
+            animation:
+                heartReveal 0.8s ease forwards;
+
             animation-delay: 1s;
         }
 
-        .invitation.show-card .message {
-            animation: contentReveal 0.7s ease forwards;
+        .show-card .message {
+            animation:
+                contentReveal 0.7s ease forwards;
+
             animation-delay: 1.2s;
         }
 
-        .invitation.show-card .details {
-            animation: contentReveal 0.7s ease forwards;
+        .show-card .details {
+            animation:
+                contentReveal 0.7s ease forwards;
+
             animation-delay: 1.4s;
         }
 
-        .invitation.show-card .footer {
-            animation: contentReveal 0.7s ease forwards;
+        .show-card .footer {
+            animation:
+                contentReveal 0.7s ease forwards;
+
             animation-delay: 1.6s;
         }
 
         @keyframes contentReveal {
+
             from {
                 opacity: 0;
                 transform: translateY(15px);
@@ -287,6 +407,7 @@
         }
 
         @keyframes heartReveal {
+
             0% {
                 opacity: 0;
                 transform: scale(0.5);
@@ -303,141 +424,177 @@
             }
         }
 
-        /* Flowers */
-
-        .flower {
-            position: absolute;
-            font-size: 65px;
-            opacity: 0.55;
-        }
-
-        .flower.top {
-            top: 10px;
-            left: 5px;
-        }
-
-        .flower.bottom {
-            bottom: 5px;
-            right: 5px;
-        }
-
-        /* Small heading */
+        /* =========================
+           TEXT
+        ========================== */
 
         .welcome {
             font-size: 12px;
             letter-spacing: 4px;
+
             text-transform: uppercase;
+
             margin-bottom: 35px;
+
             color: #9a7771;
         }
 
-        /* Main title */
-
         .engagement {
             font-size: 22px;
+
             font-style: italic;
+
             margin-bottom: 20px;
         }
 
         .names {
             font-size: 48px;
             line-height: 1.15;
+
             color: #6e514d;
         }
 
         .and {
             font-size: 32px;
+
             color: #c99992;
+
             margin: 12px 0;
         }
 
         .heart {
+            font-size: 28px;
+
             color: #c99992;
-            font-size: 25px;
+
             margin: 22px 0;
         }
 
         .message {
+            max-width: 380px;
+
+            margin: auto;
+
             font-size: 17px;
             line-height: 1.8;
-            max-width: 380px;
-            margin: auto;
         }
 
-        /* Details */
+        /* =========================
+           DETAILS
+        ========================== */
 
         .details {
             margin-top: 45px;
+
             padding: 25px;
 
             border: 1px solid #e3c7c2;
+
             border-radius: 20px;
 
             background: #fdf6f4;
         }
 
         .detail-title {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #a17c76;
             margin-top: 15px;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #a17c76;
         }
 
         .detail {
-            font-size: 21px;
             margin-top: 8px;
+
+            font-size: 21px;
+
             color: #6f5550;
         }
 
+        /* =========================
+           LOCATION
+        ========================== */
+
         .location {
             margin-top: 25px;
+
             padding-top: 20px;
-            border-top: 1px solid #ead6d2;
+
+            border-top:
+                1px solid #ead6d2;
         }
 
-        /* Location Button */
+        /* =========================
+           MAP BUTTON
+        ========================== */
 
         .button {
             display: inline-block;
+
             margin-top: 25px;
+
             padding: 14px 30px;
 
             background: #cfa6a0;
+
             color: white;
 
             text-decoration: none;
+
             border-radius: 40px;
 
             font-size: 15px;
+
             letter-spacing: 1px;
 
-            transition: 0.3s;
+            transition:
+                0.3s ease;
         }
 
         .button:hover {
             background: #b98d87;
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(120, 85, 80, 0.15);
         }
+
+        /* =========================
+           FOOTER
+        ========================== */
 
         .footer {
             margin-top: 40px;
+
             font-size: 13px;
+
             letter-spacing: 3px;
+
             color: #9a7771;
         }
 
-        /* Mobile */
+        /* =========================
+           MOBILE
+        ========================== */
 
         @media (max-width: 600px) {
 
             .opening-card {
                 min-height: 650px;
-                padding: 55px 22px;
+
+                padding:
+                    55px 22px;
             }
 
             .opening-small {
                 margin-bottom: 35px;
+
                 font-size: 10px;
             }
 
@@ -447,16 +604,21 @@
 
             .opening-date {
                 font-size: 12px;
+
                 letter-spacing: 4px;
             }
 
             .invitation {
-                padding: 20px 12px;
+                padding:
+                    20px 12px;
             }
 
             .card {
                 min-height: 800px;
-                padding: 45px 22px;
+
+                padding:
+                    45px 22px;
+
                 border-radius: 25px;
             }
 
@@ -471,7 +633,12 @@
             .detail {
                 font-size: 18px;
             }
+
+            .flower {
+                font-size: 50px;
+            }
         }
+
     </style>
 </head>
 
@@ -510,8 +677,12 @@
                 10 • 10 • 2026
             </div>
 
-            <button class="open-button" onclick="openInvitation()">
+            <button
+                class="open-button"
+                onclick="openInvitation()">
+
                 OPEN INVITATION
+
             </button>
 
         </div>
@@ -527,12 +698,25 @@
 
         <div class="card">
 
-            <div class="flower top">🌸</div>
-            <div class="flower bottom">🌸</div>
+            <!-- Decorative Flowers -->
+
+            <div class="flower top">
+                🌸
+            </div>
+
+            <div class="flower bottom">
+                🌸
+            </div>
+
+
+            <!-- Welcome -->
 
             <div class="welcome">
                 Together with their families
             </div>
+
+
+            <!-- Invitation Text -->
 
             <div class="engagement">
                 You are cordially invited to
@@ -541,6 +725,9 @@
             <div class="engagement">
                 The Engagement of
             </div>
+
+
+            <!-- Names -->
 
             <div class="names">
                 Mohammad
@@ -554,14 +741,23 @@
                 Tamara
             </div>
 
+
+            <!-- Heart -->
+
             <div class="heart">
                 ♡
             </div>
+
+
+            <!-- Message -->
 
             <p class="message">
                 We would be delighted to have you with us
                 as we celebrate this beautiful beginning.
             </p>
+
+
+            <!-- Event Details -->
 
             <div class="details">
 
@@ -573,6 +769,7 @@
                     10 / 10 / 2026
                 </div>
 
+
                 <div class="detail-title">
                     Time
                 </div>
@@ -580,6 +777,9 @@
                 <div class="detail">
                     5:30 PM – 8:00 PM
                 </div>
+
+
+                <!-- Location -->
 
                 <div class="location">
 
@@ -595,16 +795,24 @@
                         Amman, Jordan
                     </div>
 
+
+                    <!-- Google Maps -->
+
                     <a
                         class="button"
                         href="https://www.google.com/maps/search/?api=1&query=LUJAIN+HALLS+Amman"
                         target="_blank">
+
                         📍 View Location
+
                     </a>
 
                 </div>
 
             </div>
+
+
+            <!-- Footer -->
 
             <div class="footer">
                 MOHAMMAD & TAMARA
@@ -620,23 +828,41 @@
     ========================== -->
 
     <script>
+
         function openInvitation() {
-            const opening = document.getElementById("opening");
-            const invitation = document.querySelector(".invitation");
+
+            const opening =
+                document.getElementById("opening");
+
+            const invitation =
+                document.querySelector(".invitation");
+
+
+            /* Hide Opening */
 
             opening.classList.add("hide");
 
+
+            /* Show Invitation */
+
             setTimeout(() => {
+
                 invitation.classList.add("show-card");
 
+
                 window.scrollTo({
+
                     top: 0,
+
                     behavior: "smooth"
+
                 });
+
             }, 300);
+
         }
+
     </script>
 
 </body>
 </html>
-```
