@@ -12,6 +12,32 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            /* حركة بطاقة الدعوة عند الفتح */
+.invitation .card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+}
+
+.invitation.show-card .card {
+    animation: cardReveal 1.2s ease-out forwards;
+}
+
+@keyframes cardReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.96);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
         }
 
         html {
@@ -522,17 +548,21 @@
     ========================== -->
 
     <script>
-        function openInvitation() {
-            const opening = document.getElementById("opening");
+function openInvitation() {
+    const opening = document.getElementById("opening");
+    const invitation = document.querySelector(".invitation");
 
-            opening.classList.add("hide");
+    opening.classList.add("hide");
 
-            setTimeout(() => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            }, 300);
+    setTimeout(() => {
+        invitation.classList.add("show-card");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, 300);
+}
         }
     </script>
 
